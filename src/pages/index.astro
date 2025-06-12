@@ -1,11 +1,739 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import data from '../data/projects.json';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Vraies données des compétences avec icônes et niveaux
+const skills = [
+    {name: 'HTML', icon: '/assets/logo/html.svg', color: '', level: 5},
+    {name: 'CSS', icon: '/assets/logo/css.svg', level: 3},
+    {name: 'TypeScript', icon: '/assets/logo/ts.svg', level: 4},
+    {name: 'Angular', icon: '/assets/logo/angular.svg', level: 4},
+    {name: 'React', icon: '/assets/logo/react.svg', level: 3},
+    {name: 'Vue', icon: '/assets/logo/vue.svg', level: 2},
+    {name: 'NodeJS', icon: '/assets/logo/nodejs.svg', level: 3},
+    {name: 'C', icon: '/assets/logo/c.svg', level: 3},
+    {name: 'C++', icon: '/assets/logo/c++.svg', level: 3},
+    {name: 'Ionic', icon: '/assets/logo/ionic.svg', level: 3},
+    {name: 'Elasticsearch', icon: '/assets/logo/elasticsearch.svg', level: 3},
+    {name: 'Graphql', icon: '/assets/logo/graphql.svg', level: 2},
+    {name: 'MySQL', icon: '/assets/logo/mysql.svg', level: 3},
+    {name: 'Git', icon: '/assets/logo/git.svg', level: 3},
+];
+
+const projets = data;
+// Projets d'exemple - remplacez par vos vraies données JSON
+// const projets = [
+//     {
+//         'id': 1,
+//         'name': 'CASDEN',
+//         'img': '',
+//         'label': 'Alternance développeur Fullstack',
+//         'company': 'Digital4Better',
+//         'startingDate': '2021-09-06',
+//         'endingDate': '2022-03-14',
+//         'location': 'Rennes',
+//         'technologies': ['Vue', 'TS', 'Node', 'TypeOrm', 'GraphQl'],
+//         'link': 'https://www.casden.fr/',
+//         'description':
+//             "Pour ce projet, j'ai intégré une équipe de développeur, le but du projet était de réaliser un dashboard pour faciliter le suivi des actions de terrains entre la CASDEN et la banque populaire. Le projet utilisait du Vue js / Typescript pour le front et nodejs / Typeorm / graphql pour le back. J'ai pu développer des fonctionnalités de filtres, différents formulaires avec l'intégration du design que cela impliquait. J'ai également implémenté les relations avec la base de donnée que cela impliquait, fait des scripts de migrations pour adapter la base de donnée...",
+//     },
+//     {
+//         'id': 2,
+//         'name': 'CATS',
+//         'img': '',
+//         'label': 'Stage développeur Java',
+//         'company': 'Crédit Agricole Technologie & Services',
+//         'startingDate': '2018-08-01',
+//         'endingDate': '2018-12-21',
+//         'location': 'Vannes',
+//         'technologies': ['Java', 'Spring', 'MySql'],
+//         'link': '',
+//         'description':
+//             "Lors de mon stage au sein du Crédit Agricole, j'ai eu l'opportunité de travailler sur un projet visant à développer une application pour le système d'information (SI) de la banque, afin d'assurer un suivi efficace des anomalies sur les cartes de crédit qui utilisent l'application Xpay. L'objectif principal de ce projet est d'améliorer la qualité du service client et de minimiser les risques liés aux transactions frauduleuses.",
+//     },
+//     {
+//         'id': 3,
+//         'name': 'MyPatientCare',
+//         'img': '',
+//         'label': 'Alternance développeur Fullstack',
+//         'company': 'Hoppen',
+//         'startingDate': '2020-03-16',
+//         'endingDate': '2020-08-31',
+//         'location': 'Rennes',
+//         'technologies': ['React', 'Nodejs', 'MySql'],
+//         'link': 'https://www.hoppen.care/nos-solutions/',
+//         'description':
+//             "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de suivi de patients dans les hôpitaux. J'ai pu développer différentes fontionnalités front et back pour ce projet.",
+//     },
+//     {
+//         'id': 4,
+//         'name': 'MyHoppenVision',
+//         'img': '',
+//         'label': 'Alternance développeur Fullstack',
+//         'company': 'Hoppen',
+//         'startingDate': '2020-02-03',
+//         'endingDate': '2020-08-31',
+//         'location': 'Rennes',
+//         'technologies': ['React', 'Nodejs', 'MySql'],
+//         'link': 'https://www.hoppen.care/nos-solutions/',
+//         'description':
+//             "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de visioconférence disponible pour les EHPAD pour rompre l'isolement et maintenir le lien entre les patients, les résidents, leurs familles et leurs proches. J'ai pu développer différentes fontionnalités front et back pour ce projet.",
+//     },
+//     {
+//         'id': 5,
+//         'name': 'Site Fruggr.io',
+//         'img': '',
+//         'label': 'Alternance développeur Fullstack',
+//         'company': 'Digital4Better',
+//         'startingDate': '2022-04-04',
+//         'endingDate': '2022-07-04',
+//         'location': 'Rennes',
+//         'technologies': ['React', 'TypeScript', 'Forestry'],
+//         'link': 'https://www.fruggr.io/fr/',
+//         'description':
+//             "J'ai réalisé la refonte du site web avec une équipe composée d'un designer et d'une chargée de communication. Notre objectif principal était double. D'une part, nous voulions booster les performances du site pour fournir une expérience utilisateur encore meilleure, plus fluide et plus rapide. D'autre part, on a cherché à intégrer les meilleures pratiques SEO pour améliorer la visibilité du site sur les moteurs de recherche. C'était une collaboration enrichissante et pleine de défis où nous avons combiné nos compétences et notre expertise pour créer un site optimisé et esthétiquement attrayant. Nous avons mis un point d'honneur à garantir que le site non seulement fonctionne efficacement, mais aussi qu'il soit bien référencé pour attirer plus de trafic et améliorer sa visibilité en ligne. Au final, cette refonte nous a permis de présenter un site de qualité supérieure, optimisé pour les moteurs de recherche et centré sur l'utilisateur...",
+//     },
+//     {
+//         'id': 6,
+//         'name': 'Dorval',
+//         'img': '',
+//         'label': 'Alternance développeur Fullstack',
+//         'company': 'Digital4Better',
+//         'startingDate': '2022-07-04',
+//         'endingDate': '2022-09-06',
+//         'location': 'Rennes',
+//         'technologies': ['Javascript', 'Strapi'],
+//         'link': 'https://www.dorval-am.com/',
+//         'description':
+//             "Cette application avait pour but une refonte de leur site internet, j'ai donc participé à la migration de donnée de ce projet. Nous avons tout d'abord récupéré des fichiers venant d'une base de données utilisée par Drupal, il fallait ensuite parser les données, les traiter pour récupérer celles qui étaient importantes et les reformater pour les intégrer dans des composants Strapi crées en amont. Tout cela en js.",
+//     },
+//     {
+//         'id': 7,
+//         'name': 'DrumVr',
+//         'img': '',
+//         'label': 'Projet école',
+//         'company': 'Epitech',
+//         'startingDate': '2021-09-06',
+//         'endingDate': '2022-08-31',
+//         'location': 'Rennes',
+//         'technologies': ['Unity', 'C#'],
+//         'link': '',
+//         'description':
+//             "J'ai participé à la réalisation d'un projet Unity en réalité virtuelle, le but du projet était de faire une sorte de guitare hero pour la batterie. J'ai donc pu modéliser un environnement de studio pour le joueur ainsi qu'une interface de menu avec différentes fonctionnalités. Le jeu à ensuite été testé sur un oculus.",
+//     },
+//     {
+//         'id': 8,
+//         'name': 'Application Smartlife Coaching',
+//         'img': '',
+//         'label': 'Alternance développeur Fullstack',
+//         'company': 'Smartlife Coaching',
+//         'startingDate': '2022-09-05',
+//         'endingDate': '2023-07-28',
+//         'location': 'Rennes',
+//         'technologies': ['Angular', 'Ionic', 'Nodejs', 'MySql'],
+//         'link': 'https://smartlife-coaching.com/',
+//         'description':
+//             "Avec deux autres développeurs, nous avons créés l'application Smartlife qui va améliorer le service proposé par l'entreprise. L'application comporte différentes propositions de ressources (podcasts, vidéos, articles), des programmes sportifs et nutritionnels a suivre par les clients, des calculs nutritionnels pour la création des recettes par les clients ainsi que des statistiques et un chat. Nous avons également mis un backoffice à la disposition des coachs pour la creations de tout le contenu disponibles ensuite pour les clients.",
+//     },
+//     {
+//         'id': 9,
+//         'name': 'Dashboard A-gO',
+//         'img': '',
+//         'label': 'Développeur Fullstack Freelance',
+//         'company': 'A-gO',
+//         'startingDate': '2023-07-01',
+//         'endingDate': '2023-09-28',
+//         'location': 'Rennes',
+//         'technologies': ['Angular', 'Ionic', 'Nodejs', 'MySql'],
+//         'link': 'https://www.linkedin.com/company/a-go-motion/?originalSubdomain=fr',
+//         'description':
+//             "Dans le cadre d'un contrat freelance, j'ai développé une application web pour l'entreprise a-gO. L'application permet de visualiser différentes données, envoyées sous forme de format videos, ensuite analysées par une IA, et enfin affichées sous forme de graphiques. L'application permet également de créer, modifier, supprimer et visualiser des utilisateurs. Tout cela après une authentification. J'ai également mis en place l'infrastructure du projet sur aws",
+//     },
+// ];
 ---
 
 <Layout>
-	<Welcome />
+    <main class="container">
+        <section class="section" id="landing">
+            <div class="card">
+                <div class="grid">
+                    <div class="row center">
+                        <div class="col-md-4 col-xs-12 center">
+                            <img id="me" src="/assets/moi.jpeg" alt="Gwenael Bihan" />
+                        </div>
+                        <div class="col-md-8 col-xs-12">
+                            <p class="name">Gwenael Bihan</p>
+                            <h1>Développeur Fullstack Web & Mobile Freelance</h1>
+                            <p>Basé à Rennes.</p>
+                            <div class="row-profile">
+                                <button class="button-profile" onclick="copyToClipboard()">Email</button>
+                                <button class="button-profile" onclick="onClickLink(1)"> Malt </button>
+                                <button class="button-profile" onclick="onClickLink(2)"> Linkedin </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="grid">
+                <div class="col-md-6 col-xs-12">
+                    <div class="card contrast">
+                        <div class="card-header">
+                            <h2>A propos.</h2>
+                        </div>
+                        <div class="card-content">
+                            Bonjour ! Je suis un développeur fullstack JS passionné et freelance, spécialisé dans la
+                            création de solutions web & mobiles.
+                            <br />
+                            <br />
+                            Fort de mes compétences en JavaScript et de ma maîtrise des frameworks tels que React, Angular
+                            et Vue.js, je suis prêt à relever tous les défis pour transformer vos idées en réalités numériques.
+                            <br />
+                            <br />
+
+                            Mon univers ne se limite pas au développement web. Je suis également un grand amateur de
+                            sport, je pratique la boxe et le football, ce qui m'a permis de développer un esprit
+                            d'équipe et une capacité à persévérer face aux défis. La musique occupe également une place
+                            importante dans ma vie, avec un penchant particulier pour la guitare. Ca me permet de
+                            m'exprimer, de me détendre et de stimuler ma créativité, des compétences qui se révèlent
+                            précieuses dans mon travail de développeur.
+                            <br />
+                            <br />
+
+                            Enfin, j'aime voyager et découvrir de nouvelles cultures, car cela nourrit ma curiosité et
+                            m'inspire dans mon travail. Je suis convaincu que ces expériences me permettent de concevoir
+                            des solutions plus adaptées aux besoins de mes clients, en comprenant mieux leur contexte et
+                            leurs attentes. En somme, je suis un développeur fullstack JS freelance déterminé et
+                            polyvalent, toujours à la recherche de nouvelles aventures et prêt à vous accompagner dans
+                            la réalisation de vos projets. N'hésitez pas à me contacter pour en discuter d'avantage !
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Compétences.</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="skills">
+                                {
+                                    skills.map((skill) => (
+                                        <div class="skill-item">
+                                            <img src={skill.icon} alt={skill.name} class="skill-icon" />
+                                            <span class="skill-name">{skill.name}</span>
+                                            <div class="skill-level">
+                                                {Array.from({length: 5}, (_, i) => (
+                                                    <span class={`star ${i < skill.level ? 'filled' : ''}`}>★</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="prestations">
+            <div class="card contrast">
+                <div class="card-header">
+                    <h2>Préstations.</h2>
+                </div>
+                <div class="card-content">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <h3>Front-end</h3>
+                                <ul>
+                                    <li>Conception d'interfaces utilisateur (UI)</li>
+                                    <li>Développement de composants réutilisables</li>
+                                    <li>Intégration de données</li>
+                                    <li>Interaction utilisateur</li>
+                                    <li>Optimisation des performances</li>
+                                    <li>Tests</li>
+                                    <li>Responsive design</li>
+                                    <li>Support multi-navigateurs</li>
+                                    <li>Maintenance et mises à jour</li>
+                                    <li>Collaboration</li>
+                                    <li>Documentation</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <h3>Back-end</h3>
+                                <ul>
+                                    <li>Conception de l'architecture backend</li>
+                                    <li>Développement des API et des services web</li>
+                                    <li>Intégration avec les bases de données</li>
+                                    <li>Implémentation de la logique métier</li>
+                                    <li>Sécurité et gestion des autorisations</li>
+                                    <li>Gestion des sessions et de l'authentification</li>
+                                    <li>Support et maintenance backend</li>
+                                    <li>Mise en place des serveurs et déploiement</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <h3>Mobile</h3>
+                                <ul>
+                                    <li>Conception d'interfaces utilisateur (UI) mobiles</li>
+                                    <li>Développement d'écrans et de fonctionnalités mobiles</li>
+                                    <li>Intégration de services et d'API</li>
+                                    <li>Interaction utilisateur mobile</li>
+                                    <li>Optimisation des performances mobiles</li>
+                                    <li>Support multi-plateformes (iOS, Android, etc.)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="grid">
+                <div class="row">
+                    <h2>Réalisations.</h2>
+                </div>
+                <div class="projects-container">
+                    {
+                        projets.map((projet) => (
+                            <div class="project-card">
+                                <div class="card-header">
+                                    <div class="tags">
+                                        {projet.technologies.map((tech) => (
+                                            <span class="tag">{tech}</span>
+                                        ))}
+                                    </div>
+                                    <h3>{projet.name}</h3>
+                                </div>
+                                <div class="card-content">
+                                    <p>{projet.label}</p>
+                                    <p class="mb-10">
+                                        {projet.startingDate} - {projet.endingDate}
+                                    </p>
+                                    <button onclick={`navigateTo(${JSON.stringify(projet)})`}>Voir le projet</button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
 </Layout>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2023 Gwenael Bihan Portfolio</p>
+    </div>
+</footer>
+
+<script>
+    // Fonction pour copier l'email dans le presse-papier
+    async function copyToClipboard() {
+        try {
+            await navigator.clipboard.writeText('gwenael.bihan@protonmail.com');
+            alert('Texte copié: gwenael.bihan@protonmail.com');
+        } catch (err) {
+            alert('Erreur lors de la copie: ' + err);
+        }
+    }
+
+    // Fonction pour ouvrir les liens externes
+    function onClickLink(int: number) {
+        if (int == 1) {
+            window.location.href = 'https://www.malt.fr/profile/gwenaelbihan';
+        } else if (int == 2) {
+            window.location.href = 'https://www.linkedin.com/in/gwenael-bihan-a25b62153/';
+        }
+    }
+
+    // Fonction pour naviguer vers le détail d'un projet
+    function navigateTo(item: any) {
+        window.location.href = `/project/${item.id}`;
+    }
+
+    // Déclarer les types pour les fonctions globales
+    declare global {
+        interface Window {
+            copyToClipboard: () => Promise<void>;
+            onClickLink: (int: number) => void;
+            navigateTo: (item: any) => void;
+        }
+    }
+
+    // Rendre les fonctions globales pour les événements onclick
+    (window as any).copyToClipboard = copyToClipboard;
+    (window as any).onClickLink = onClickLink;
+    (window as any).navigateTo = navigateTo;
+
+    // Fonction pour ajuster la vitesse d'animation en fonction de la largeur de l'écran
+    function adjustAnimationDuration() {
+        const rows = document.querySelectorAll('.projects-row');
+        const screenWidth = window.innerWidth;
+        const duration = Math.max(20, Math.min(40, screenWidth / 50)); // Entre 20s et 40s selon la largeur
+
+        rows.forEach((row) => {
+            (row as HTMLElement).style.animationDuration = `${duration}s`;
+        });
+    }
+
+    // Fonction pour dupliquer les cartes et créer un défilement infini
+    function setupInfiniteScroll() {
+        const rows = document.querySelectorAll('.projects-row');
+
+        rows.forEach((row) => {
+            const cards = row.children;
+            const rowWidth = Array.from(cards).reduce(
+                (width, card) => width + (card as HTMLElement).offsetWidth + 20,
+                0,
+            );
+            const repeatsNeeded = Math.ceil((window.innerWidth * 2) / rowWidth);
+
+            // Dupliquer les cartes autant de fois que nécessaire
+            for (let i = 0; i < repeatsNeeded; i++) {
+                Array.from(cards).forEach((card) => {
+                    const clone = card.cloneNode(true) as HTMLElement;
+                    row.appendChild(clone);
+                });
+            }
+        });
+    }
+
+    // Ajuster la vitesse au chargement et au redimensionnement
+    window.addEventListener('load', () => {
+        setupInfiniteScroll();
+        adjustAnimationDuration();
+    });
+    window.addEventListener('resize', adjustAnimationDuration);
+</script>
+
+<style>
+    .container {
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .contrast {
+        background: #0c1021;
+        border: 1px solid #6919ff4d;
+    }
+
+    .section {
+        margin-bottom: 40px;
+        background: none;
+        .card {
+            background: none;
+        }
+    }
+
+    .grid {
+        display: grid;
+        gap: 30px;
+    }
+
+    .row,
+    .row-profile {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .row-profile {
+        margin-top: 50px;
+    }
+
+    .row.center {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .col-4 {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .col-md-4 {
+        flex: 0 0 calc(33.333% - 20px);
+        min-width: 250px;
+    }
+
+    .col-md-6 {
+        flex: 0 0 calc(50% - 20px);
+        min-width: 300px;
+    }
+
+    .col-md-8 {
+        flex: 0 0 calc(66.666% - 20px);
+    }
+
+    .col-xs-12 {
+        flex: 1;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #me {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .name {
+        font-size: 1.1rem;
+        color: #888;
+        margin: 0;
+    }
+
+    h1 {
+        color: #f8f9fa;
+        font-size: 1.8rem;
+        margin: 8px 0;
+        line-height: 1.3;
+    }
+
+    button {
+        color: #6919ff;
+        padding: 4px 16px;
+        border-radius: 6px;
+        border: 1px solid #6919ff4d;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        background-color: #6919ff1a;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #6919ff33;
+    }
+
+    .button-profile {
+        max-width: 100px;
+        height: 30px;
+    }
+
+    /* Styles pour les compétences avec icônes et niveaux */
+    .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    .skill-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        transition: transform 0.2s ease;
+    }
+
+    .skill-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        object-fit: contain;
+    }
+
+    .skill-name {
+        font-weight: 500;
+        margin-right: auto;
+        color: #333;
+    }
+
+    .skill-level {
+        display: flex;
+        gap: 2px;
+    }
+
+    .star {
+        color: #ddd;
+        font-size: 14px;
+    }
+
+    .star.filled {
+        color: #ffc107;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+
+    .tag {
+        background: #333;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .projects-container {
+        display: grid;
+        gap: 20px;
+        padding: 20px;
+        grid-template-columns: 1fr; /* Par défaut: 1 colonne pour mobile */
+    }
+
+    .project-card {
+        background: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(
+            circle,
+            rgba(105, 25, 255, 0.4) 0%,
+            rgba(105, 25, 255, 0.2) 30%,
+            rgba(105, 25, 255, 0.1) 60%,
+            transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        transition: all 0.6s ease;
+        pointer-events: none;
+        opacity: 0;
+        border-radius: 50%;
+        animation: none;
+    }
+
+    .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(105, 25, 255, 0.3);
+    }
+
+    .project-card:hover::before {
+        width: 250%;
+        height: 250%;
+        opacity: 1;
+        animation: sparkle 2s ease-out infinite;
+    }
+
+    @keyframes sparkle {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+    .mb-10 {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #888;
+    }
+
+    .footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+    }
+
+    .footer-content p {
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+        }
+
+        .row-profile {
+            justify-content: center;
+        }
+
+        .button-profile {
+            max-width: 100px;
+            height: 30px;
+        }
+
+        .project-card {
+            max-width: unset;
+        }
+
+        .col-md-4,
+        .col-md-6,
+        .col-md-8 {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        .container {
+            padding: 10px;
+            width: 100%;
+        }
+
+        .skills {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Tablette: 2 colonnes */
+    @media (min-width: 600px) {
+        .projects-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Petit desktop: 3 colonnes */
+    @media (min-width: 900px) {
+        .projects-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* Grand desktop: 4 colonnes */
+    @media (min-width: 1200px) {
+        .projects-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>
