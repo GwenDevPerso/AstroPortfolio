@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import data from '../data/projects.json';
+import {Image} from 'astro:assets';
 
 // Vraies données des compétences avec icônes et niveaux
 const skills = [
@@ -8,148 +9,24 @@ const skills = [
     {name: 'CSS', icon: '/assets/logo/css.svg', level: 3},
     {name: 'TypeScript', icon: '/assets/logo/ts.svg', level: 4},
     {name: 'Angular', icon: '/assets/logo/angular.svg', level: 4},
-    {name: 'React', icon: '/assets/logo/react.svg', level: 3},
+    {name: 'React', icon: '/assets/logo/react.png', level: 3},
     {name: 'Vue', icon: '/assets/logo/vue.svg', level: 2},
     {name: 'NodeJS', icon: '/assets/logo/nodejs.svg', level: 3},
     {name: 'C', icon: '/assets/logo/c.svg', level: 3},
     {name: 'C++', icon: '/assets/logo/c++.svg', level: 3},
     {name: 'Ionic', icon: '/assets/logo/ionic.svg', level: 3},
     {name: 'Elasticsearch', icon: '/assets/logo/elasticsearch.svg', level: 3},
-    {name: 'Graphql', icon: '/assets/logo/graphql.svg', level: 2},
+    {name: 'Graphql', icon: '/assets/logo/graphql.svg', level: 3},
     {name: 'MySQL', icon: '/assets/logo/mysql.svg', level: 3},
     {name: 'Git', icon: '/assets/logo/git.svg', level: 3},
+    {name: 'Nest', icon: '/assets/logo/nest.png', level: 3},
+    {name: 'Next', icon: '/assets/logo/next.png', level: 2},
+    {name: 'Jenkins', icon: '/assets/logo/jenkins.png', level: 3},
+    {name: 'Web3', icon: '/assets/logo/web3.png', level: 2},
+    {name: 'MongoDB', icon: '/assets/logo/mongo.png', level: 3},
 ];
 
 const projets = data;
-// Projets d'exemple - remplacez par vos vraies données JSON
-// const projets = [
-//     {
-//         'id': 1,
-//         'name': 'CASDEN',
-//         'img': '',
-//         'label': 'Alternance développeur Fullstack',
-//         'company': 'Digital4Better',
-//         'startingDate': '2021-09-06',
-//         'endingDate': '2022-03-14',
-//         'location': 'Rennes',
-//         'technologies': ['Vue', 'TS', 'Node', 'TypeOrm', 'GraphQl'],
-//         'link': 'https://www.casden.fr/',
-//         'description':
-//             "Pour ce projet, j'ai intégré une équipe de développeur, le but du projet était de réaliser un dashboard pour faciliter le suivi des actions de terrains entre la CASDEN et la banque populaire. Le projet utilisait du Vue js / Typescript pour le front et nodejs / Typeorm / graphql pour le back. J'ai pu développer des fonctionnalités de filtres, différents formulaires avec l'intégration du design que cela impliquait. J'ai également implémenté les relations avec la base de donnée que cela impliquait, fait des scripts de migrations pour adapter la base de donnée...",
-//     },
-//     {
-//         'id': 2,
-//         'name': 'CATS',
-//         'img': '',
-//         'label': 'Stage développeur Java',
-//         'company': 'Crédit Agricole Technologie & Services',
-//         'startingDate': '2018-08-01',
-//         'endingDate': '2018-12-21',
-//         'location': 'Vannes',
-//         'technologies': ['Java', 'Spring', 'MySql'],
-//         'link': '',
-//         'description':
-//             "Lors de mon stage au sein du Crédit Agricole, j'ai eu l'opportunité de travailler sur un projet visant à développer une application pour le système d'information (SI) de la banque, afin d'assurer un suivi efficace des anomalies sur les cartes de crédit qui utilisent l'application Xpay. L'objectif principal de ce projet est d'améliorer la qualité du service client et de minimiser les risques liés aux transactions frauduleuses.",
-//     },
-//     {
-//         'id': 3,
-//         'name': 'MyPatientCare',
-//         'img': '',
-//         'label': 'Alternance développeur Fullstack',
-//         'company': 'Hoppen',
-//         'startingDate': '2020-03-16',
-//         'endingDate': '2020-08-31',
-//         'location': 'Rennes',
-//         'technologies': ['React', 'Nodejs', 'MySql'],
-//         'link': 'https://www.hoppen.care/nos-solutions/',
-//         'description':
-//             "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de suivi de patients dans les hôpitaux. J'ai pu développer différentes fontionnalités front et back pour ce projet.",
-//     },
-//     {
-//         'id': 4,
-//         'name': 'MyHoppenVision',
-//         'img': '',
-//         'label': 'Alternance développeur Fullstack',
-//         'company': 'Hoppen',
-//         'startingDate': '2020-02-03',
-//         'endingDate': '2020-08-31',
-//         'location': 'Rennes',
-//         'technologies': ['React', 'Nodejs', 'MySql'],
-//         'link': 'https://www.hoppen.care/nos-solutions/',
-//         'description':
-//             "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de visioconférence disponible pour les EHPAD pour rompre l'isolement et maintenir le lien entre les patients, les résidents, leurs familles et leurs proches. J'ai pu développer différentes fontionnalités front et back pour ce projet.",
-//     },
-//     {
-//         'id': 5,
-//         'name': 'Site Fruggr.io',
-//         'img': '',
-//         'label': 'Alternance développeur Fullstack',
-//         'company': 'Digital4Better',
-//         'startingDate': '2022-04-04',
-//         'endingDate': '2022-07-04',
-//         'location': 'Rennes',
-//         'technologies': ['React', 'TypeScript', 'Forestry'],
-//         'link': 'https://www.fruggr.io/fr/',
-//         'description':
-//             "J'ai réalisé la refonte du site web avec une équipe composée d'un designer et d'une chargée de communication. Notre objectif principal était double. D'une part, nous voulions booster les performances du site pour fournir une expérience utilisateur encore meilleure, plus fluide et plus rapide. D'autre part, on a cherché à intégrer les meilleures pratiques SEO pour améliorer la visibilité du site sur les moteurs de recherche. C'était une collaboration enrichissante et pleine de défis où nous avons combiné nos compétences et notre expertise pour créer un site optimisé et esthétiquement attrayant. Nous avons mis un point d'honneur à garantir que le site non seulement fonctionne efficacement, mais aussi qu'il soit bien référencé pour attirer plus de trafic et améliorer sa visibilité en ligne. Au final, cette refonte nous a permis de présenter un site de qualité supérieure, optimisé pour les moteurs de recherche et centré sur l'utilisateur...",
-//     },
-//     {
-//         'id': 6,
-//         'name': 'Dorval',
-//         'img': '',
-//         'label': 'Alternance développeur Fullstack',
-//         'company': 'Digital4Better',
-//         'startingDate': '2022-07-04',
-//         'endingDate': '2022-09-06',
-//         'location': 'Rennes',
-//         'technologies': ['Javascript', 'Strapi'],
-//         'link': 'https://www.dorval-am.com/',
-//         'description':
-//             "Cette application avait pour but une refonte de leur site internet, j'ai donc participé à la migration de donnée de ce projet. Nous avons tout d'abord récupéré des fichiers venant d'une base de données utilisée par Drupal, il fallait ensuite parser les données, les traiter pour récupérer celles qui étaient importantes et les reformater pour les intégrer dans des composants Strapi crées en amont. Tout cela en js.",
-//     },
-//     {
-//         'id': 7,
-//         'name': 'DrumVr',
-//         'img': '',
-//         'label': 'Projet école',
-//         'company': 'Epitech',
-//         'startingDate': '2021-09-06',
-//         'endingDate': '2022-08-31',
-//         'location': 'Rennes',
-//         'technologies': ['Unity', 'C#'],
-//         'link': '',
-//         'description':
-//             "J'ai participé à la réalisation d'un projet Unity en réalité virtuelle, le but du projet était de faire une sorte de guitare hero pour la batterie. J'ai donc pu modéliser un environnement de studio pour le joueur ainsi qu'une interface de menu avec différentes fonctionnalités. Le jeu à ensuite été testé sur un oculus.",
-//     },
-//     {
-//         'id': 8,
-//         'name': 'Application Smartlife Coaching',
-//         'img': '',
-//         'label': 'Alternance développeur Fullstack',
-//         'company': 'Smartlife Coaching',
-//         'startingDate': '2022-09-05',
-//         'endingDate': '2023-07-28',
-//         'location': 'Rennes',
-//         'technologies': ['Angular', 'Ionic', 'Nodejs', 'MySql'],
-//         'link': 'https://smartlife-coaching.com/',
-//         'description':
-//             "Avec deux autres développeurs, nous avons créés l'application Smartlife qui va améliorer le service proposé par l'entreprise. L'application comporte différentes propositions de ressources (podcasts, vidéos, articles), des programmes sportifs et nutritionnels a suivre par les clients, des calculs nutritionnels pour la création des recettes par les clients ainsi que des statistiques et un chat. Nous avons également mis un backoffice à la disposition des coachs pour la creations de tout le contenu disponibles ensuite pour les clients.",
-//     },
-//     {
-//         'id': 9,
-//         'name': 'Dashboard A-gO',
-//         'img': '',
-//         'label': 'Développeur Fullstack Freelance',
-//         'company': 'A-gO',
-//         'startingDate': '2023-07-01',
-//         'endingDate': '2023-09-28',
-//         'location': 'Rennes',
-//         'technologies': ['Angular', 'Ionic', 'Nodejs', 'MySql'],
-//         'link': 'https://www.linkedin.com/company/a-go-motion/?originalSubdomain=fr',
-//         'description':
-//             "Dans le cadre d'un contrat freelance, j'ai développé une application web pour l'entreprise a-gO. L'application permet de visualiser différentes données, envoyées sous forme de format videos, ensuite analysées par une IA, et enfin affichées sous forme de graphiques. L'application permet également de créer, modifier, supprimer et visualiser des utilisateurs. Tout cela après une authentification. J'ai également mis en place l'infrastructure du projet sur aws",
-//     },
-// ];
 ---
 
 <Layout>
@@ -159,16 +36,16 @@ const projets = data;
                 <div class="grid">
                     <div class="row center">
                         <div class="col-md-4 col-xs-12 center">
-                            <img id="me" src="/assets/moi.jpeg" alt="Gwenael Bihan" />
+                            <Image id="me" src="/assets/pack.png" alt="Gwenael Bihan" width={150} height={300} />
                         </div>
                         <div class="col-md-8 col-xs-12">
                             <p class="name">Gwenael Bihan</p>
                             <h1>Développeur Fullstack Web & Mobile Freelance</h1>
                             <p>Basé à Rennes.</p>
                             <div class="row-profile">
-                                <button class="button-profile" onclick="copyToClipboard()">Email</button>
-                                <button class="button-profile" onclick="onClickLink(1)"> Malt </button>
-                                <button class="button-profile" onclick="onClickLink(2)"> Linkedin </button>
+                                <button class="button-profile" onclick="copyToClipboard()"><span>Email</span></button>
+                                <button class="button-profile" onclick="onClickLink(1)"><span>Malt</span></button>
+                                <button class="button-profile" onclick="onClickLink(2)"><span>Linkedin</span></button>
                             </div>
                         </div>
                     </div>
@@ -179,7 +56,7 @@ const projets = data;
         <section class="section" id="about">
             <div class="grid">
                 <div class="col-md-6 col-xs-12">
-                    <div class="card contrast">
+                    <div class="card contrast" id="about-card">
                         <div class="card-header">
                             <h2>A propos.</h2>
                         </div>
@@ -314,6 +191,8 @@ const projets = data;
                                     <p class="mb-10">
                                         {projet.startingDate} - {projet.endingDate}
                                     </p>
+                                </div>
+                                <div class="card-footer">
                                     <button onclick={`navigateTo(${JSON.stringify(projet)})`}>Voir le projet</button>
                                 </div>
                             </div>
@@ -327,7 +206,7 @@ const projets = data;
 
 <footer class="footer">
     <div class="footer-content">
-        <p>© 2023 Gwenael Bihan Portfolio</p>
+        <p>© 2025 Gwenael Bihan Portfolio</p>
     </div>
 </footer>
 
@@ -426,6 +305,61 @@ const projets = data;
     .contrast {
         background: #0c1021;
         border: 1px solid #6919ff4d;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .contrast {
+        background: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .contrast::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(
+            circle,
+            rgba(105, 25, 255, 0.4) 0%,
+            rgba(105, 25, 255, 0.2) 30%,
+            rgba(105, 25, 255, 0.1) 60%,
+            transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        transition: all 0.6s ease;
+        pointer-events: none;
+        opacity: 0;
+        border-radius: 50%;
+        animation: none;
+    }
+
+    .contrast:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(105, 25, 255, 0.3);
+    }
+
+    .contrast:hover::before {
+        width: 250%;
+        height: 250%;
+        opacity: 1;
+        animation: sparkle 2s ease-out infinite;
     }
 
     .section {
@@ -488,10 +422,13 @@ const projets = data;
     }
 
     #me {
-        width: 150px;
-        height: 150px;
         border-radius: 50%;
-        object-fit: cover;
+        object-fit: contain;
+        transition: filter 0.3s ease;
+    }
+
+    #me:hover {
+        filter: grayscale(100%);
     }
 
     .name {
@@ -526,9 +463,31 @@ const projets = data;
     .button-profile {
         max-width: 100px;
         height: 30px;
+        position: relative;
+        overflow: hidden;
     }
 
-    /* Styles pour les compétences avec icônes et niveaux */
+    .button-profile::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #6919ff33;
+        transition: left 1s ease;
+    }
+
+    .button-profile:hover::before {
+        left: 0;
+    }
+
+    .button-profile span {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Skills */
     .skills {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -567,6 +526,7 @@ const projets = data;
         gap: 2px;
     }
 
+    /* Stars */
     .star {
         color: #ddd;
         font-size: 14px;
@@ -576,6 +536,7 @@ const projets = data;
         color: #ffc107;
     }
 
+    /* Tags */
     .tags {
         display: flex;
         flex-wrap: wrap;
@@ -592,6 +553,12 @@ const projets = data;
         font-weight: 500;
     }
 
+    .card {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Projects */
     .projects-container {
         display: grid;
         gap: 20px;
@@ -609,6 +576,9 @@ const projets = data;
             box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .project-card::before {
@@ -645,6 +615,7 @@ const projets = data;
         animation: sparkle 2s ease-out infinite;
     }
 
+    /* Footer */
     @keyframes sparkle {
         0% {
             opacity: 0;
@@ -735,5 +706,17 @@ const projets = data;
         .projects-container {
             grid-template-columns: repeat(4, 1fr);
         }
+    }
+
+    #landing {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        position: relative;
+        z-index: 2;
     }
 </style>
