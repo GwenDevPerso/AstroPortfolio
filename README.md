@@ -1,48 +1,75 @@
-# Astro Starter Kit: Basics
+# Gwenael Bihan Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+## 🚀 Description
+
+Portfolio personnel présentant mes projets et compétences en tant que développeur Fullstack Web & Mobile Freelance. Construit avec Astro pour des performances optimales et une expérience utilisateur fluide.
+
+## 🛠️ Technologies Utilisées
+
+-   [Astro](https://astro.build/) - Framework Web moderne
+-   TypeScript - Pour un code plus robuste
+-   CSS Moderne - Animations et design responsive
+-   HTML5 - Structure sémantique
+
+## 🏗️ Structure du Projet
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
-│   └── favicon.svg
+│   └── assets/
+│       ├── logo/
+│       └── pack.png
 ├── src/
+│   ├── components/
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   └── project/
+│   └── data/
+│       └── projects.json
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Installation
 
-## 🧞 Commands
+1. Cloner le projet
 
-All commands are run from the root of the project, from a terminal:
+```bash
+git clone https://github.com/votre-username/portfolio.git
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. Installer les dépendances
 
-## 👀 Want to learn more?
+```bash
+npm install
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+3. Lancer en développement
+
+```bash
+npm run dev
+```
+
+4. Pour la production
+
+```bash
+npm run build
+```
+
+## 🎨 Personnalisation
+
+-   Modifier `src/data/projects.json` pour ajouter/modifier les projets
+-   Ajuster les couleurs et thèmes dans les fichiers CSS
+-   Personnaliser les animations dans Layout.astro
+-   Modifier les textes dans index.astro
+
+## 📝 License
+
+MIT License - voir le fichier [LICENSE.md](LICENSE.md) pour plus de détails
+
+## 📧 Contact
+
+-   Email: gwenael.bihan@protonmail.com
+-   LinkedIn: [Gwenael Bihan](https://www.linkedin.com/in/gwenael-bihan-a25b62153/)
+-   Malt: [Profil Malt](https://www.malt.fr/profile/gwenaelbihan)
