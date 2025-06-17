@@ -15,7 +15,7 @@ const currentProject = projects.find((p: any) => p.id === parseInt(slug || '0'))
 
 <Layout>
     <main class="container">
-        <a href="/" class="button">← Retour à l'accueil</a>
+        <a href={import.meta.env.BASE_URL} class="button">← Retour à l'accueil</a>
 
         {
             currentProject ? (

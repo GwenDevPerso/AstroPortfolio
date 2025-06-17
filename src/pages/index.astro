@@ -232,7 +232,7 @@ const projets = data;
 
     // Fonction pour naviguer vers le détail d'un projet
     function navigateTo(item: any) {
-        window.location.href = `/project/${item.id}`;
+        window.location.href = `${import.meta.env.BASE_URL}project/${item.id}`;
     }
 
     // Déclarer les types pour les fonctions globales
