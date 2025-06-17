@@ -5,25 +5,25 @@ import {Image} from 'astro:assets';
 
 // Vraies données des compétences avec icônes et niveaux
 const skills = [
-    {name: 'HTML', icon: `${import.meta.env.BASE_URL}assets/logo/html.svg`, color: '', level: 5},
-    {name: 'CSS', icon: `${import.meta.env.BASE_URL}assets/logo/css.svg`, level: 3},
-    {name: 'TypeScript', icon: `${import.meta.env.BASE_URL}assets/logo/ts.svg`, level: 4},
-    {name: 'Angular', icon: `${import.meta.env.BASE_URL}assets/logo/angular.svg`, level: 4},
-    {name: 'React', icon: `${import.meta.env.BASE_URL}assets/logo/react.png`, level: 3},
-    {name: 'Vue', icon: `${import.meta.env.BASE_URL}assets/logo/vue.svg`, level: 2},
-    {name: 'NodeJS', icon: `${import.meta.env.BASE_URL}assets/logo/nodejs.svg`, level: 3},
-    {name: 'C', icon: `${import.meta.env.BASE_URL}assets/logo/c.svg`, level: 3},
-    {name: 'C++', icon: `${import.meta.env.BASE_URL}assets/logo/c++.svg`, level: 3},
-    {name: 'Ionic', icon: `${import.meta.env.BASE_URL}assets/logo/ionic.svg`, level: 3},
-    {name: 'Elasticsearch', icon: `${import.meta.env.BASE_URL}assets/logo/elasticsearch.svg`, level: 3},
-    {name: 'Graphql', icon: `${import.meta.env.BASE_URL}assets/logo/graphql.svg`, level: 3},
-    {name: 'MySQL', icon: `${import.meta.env.BASE_URL}assets/logo/mysql.svg`, level: 3},
-    {name: 'Git', icon: `${import.meta.env.BASE_URL}assets/logo/git.svg`, level: 3},
-    {name: 'Nest', icon: `${import.meta.env.BASE_URL}assets/logo/nest.png`, level: 3},
-    {name: 'Next', icon: `${import.meta.env.BASE_URL}assets/logo/next.png`, level: 2},
-    {name: 'Jenkins', icon: `${import.meta.env.BASE_URL}assets/logo/jenkins.png`, level: 3},
-    {name: 'Web3', icon: `${import.meta.env.BASE_URL}assets/logo/web3.png`, level: 2},
-    {name: 'MongoDB', icon: `${import.meta.env.BASE_URL}assets/logo/mongo.png`, level: 3},
+    {name: 'HTML', icon: `${import.meta.env.BASE_URL}/assets/logo/html.svg`, color: '', level: 5},
+    {name: 'CSS', icon: `${import.meta.env.BASE_URL}/assets/logo/css.svg`, level: 3},
+    {name: 'TypeScript', icon: `${import.meta.env.BASE_URL}/assets/logo/ts.svg`, level: 4},
+    {name: 'Angular', icon: `${import.meta.env.BASE_URL}/assets/logo/angular.svg`, level: 4},
+    {name: 'React', icon: `${import.meta.env.BASE_URL}/assets/logo/react.png`, level: 3},
+    {name: 'Vue', icon: `${import.meta.env.BASE_URL}/assets/logo/vue.svg`, level: 2},
+    {name: 'NodeJS', icon: `${import.meta.env.BASE_URL}/assets/logo/nodejs.svg`, level: 3},
+    {name: 'C', icon: `${import.meta.env.BASE_URL}/assets/logo/c.svg`, level: 3},
+    {name: 'C++', icon: `${import.meta.env.BASE_URL}/assets/logo/c++.svg`, level: 3},
+    {name: 'Ionic', icon: `${import.meta.env.BASE_URL}/assets/logo/ionic.svg`, level: 3},
+    {name: 'Elasticsearch', icon: `${import.meta.env.BASE_URL}/assets/logo/elasticsearch.svg`, level: 3},
+    {name: 'Graphql', icon: `${import.meta.env.BASE_URL}/assets/logo/graphql.svg`, level: 3},
+    {name: 'MySQL', icon: `${import.meta.env.BASE_URL}/assets/logo/mysql.svg`, level: 3},
+    {name: 'Git', icon: `${import.meta.env.BASE_URL}/assets/logo/git.svg`, level: 3},
+    {name: 'Nest', icon: `${import.meta.env.BASE_URL}/assets/logo/nest.png`, level: 3},
+    {name: 'Next', icon: `${import.meta.env.BASE_URL}/assets/logo/next.png`, level: 2},
+    {name: 'Jenkins', icon: `${import.meta.env.BASE_URL}/assets/logo/jenkins.png`, level: 3},
+    {name: 'Web3', icon: `${import.meta.env.BASE_URL}/assets/logo/web3.png`, level: 2},
+    {name: 'MongoDB', icon: `${import.meta.env.BASE_URL}/assets/logo/mongo.png`, level: 3},
 ];
 
 const projets = data;
@@ -38,7 +38,7 @@ const projets = data;
                         <div class="col-md-4 col-xs-12 center">
                             <Image
                                 id="me"
-                                src={`${import.meta.env.BASE_URL}assets/pack.png`}
+                                src={`${import.meta.env.BASE_URL}/assets/pack.png`}
                                 alt="Gwenael Bihan"
                                 width={150}
                                 height={300}
