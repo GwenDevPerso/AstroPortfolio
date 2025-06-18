@@ -34,7 +34,7 @@ const skills = [
 const projets = data[lang];
 ---
 
-<Layout lang={lang}>
+<Layout title="Gwenael Bihan - Freelance Developer" lang={lang}>
     <main class="container">
         <section class="section" id="landing">
             <div class="card">
@@ -206,8 +206,8 @@ const projets = data[lang];
     // Fonction pour naviguer vers le détail d'un projet
     function navigateTo(item: any) {
         const currentPath = window.location.pathname;
-        const lang = currentPath.startsWith('/en') ? '/en' : '';
-        window.location.href = `${lang}/project/${item.id}`;
+        const lang = currentPath.startsWith('/en/') ? '/en' : '';
+        window.location.href = `${lang}/project/${item.id}/`;
     }
 
     // Déclarer les types pour les fonctions globales

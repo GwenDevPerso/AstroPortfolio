@@ -6,6 +6,7 @@ export default defineConfig({
   site: 'https://gwenaelbihan.com',
   base: '/',
   output: 'static',
+  trailingSlash: 'always',
   build: {
     assets: 'assets'
   }
