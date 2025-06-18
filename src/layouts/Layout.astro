@@ -1,13 +1,19 @@
 ---
+import LanguagePicker from '../components/LanguagePicker.astro';
+import Nav from '../components/Nav.astro';
+import {getLangFromUrl} from '../i18n/utils';
+
 export interface Props {
     title?: string;
+    lang?: string;
 }
 
-const {title = 'Astro'} = Astro.props;
+const {title = 'Astro', lang} = Astro.props;
+const currentLang = lang || getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={currentLang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -16,7 +22,10 @@ const {title = 'Astro'} = Astro.props;
         <title>{title}</title>
     </head>
     <body>
+        <Nav />
+        <LanguagePicker />
         <div id="cursor-light"></div>
+
         <div class="firefly"></div>
         <div class="firefly"></div>
         <div class="firefly"></div>

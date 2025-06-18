@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import data from '../data/projects.json';
+import Layout from '../../layouts/Layout.astro';
+import data from '../../data/projects.json';
 import {Image} from 'astro:assets';
-import {getLangFromUrl, useTranslations} from '../i18n/utils';
+import {getLangFromUrl, useTranslations} from '../../i18n/utils';
 
 // Utiliser le système i18n selon la documentation Astro
 const lang = getLangFromUrl(Astro.url);
@@ -107,7 +107,7 @@ const projets = data[lang];
             </div>
         </section>
 
-        <section class="section" id="services">
+        <section class="section" id="prestations">
             <div class="card contrast">
                 <div class="card-header">
                     <h2>{t('services.title')}</h2>
@@ -142,10 +142,10 @@ const projets = data[lang];
             </div>
         </section>
 
-        <section class="section" id="projects">
+        <section class="section">
             <div class="grid">
                 <div class="row">
-                    <h2>{t('projects.title')}</h2>
+                    <h2>Réalisations.</h2>
                 </div>
                 <div class="projects-container">
                     {

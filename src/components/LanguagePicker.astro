@@ -1,0 +1,132 @@
+---
+import {languages, defaultLang} from '../i18n/ui';
+import {getLangFromUrl, useTranslatedPath, getRouteFromUrl} from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<div class="language-selector">
+    <ul>
+        {
+            Object.entries(languages).map(([langCode, label]) => {
+                let href;
+                if (langCode === defaultLang) {
+                    href = import.meta.env.BASE_URL || '/';
+                } else {
+                    const route = getRouteFromUrl(Astro.url);
+                    let path;
+                    if (route && route !== '/') {
+                        path = `/${route}`;
+                    } else {
+                        const base = import.meta.env.BASE_URL;
+                        let conceptualPath = Astro.url.pathname.replace(base, '');
+                        if (conceptualPath.startsWith(`/${lang}`)) {
+                            conceptualPath = conceptualPath.substring(lang.length + 1);
+                        }
+                        path = conceptualPath || '/';
+                    }
+                    href = translatePath(path, langCode);
+                }
+
+                return (
+                    <li>
+                        <a href={href} class={`lang-link ${langCode === lang ? 'active' : ''}`}>
+                            <span class="flag">{langCode === 'fr' ? '🇫🇷' : '🇬🇧'}</span>
+                            <span class="lang-text">{langCode.toUpperCase()}</span>
+                        </a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</div>
+
+<script>
+    function updateLangLinkHashes() {
+        const hash = window.location.hash;
+        if (!hash) return;
+
+        document.querySelectorAll('a.lang-link').forEach((link) => {
+            const a = link as HTMLAnchorElement;
+            try {
+                const url = new URL(a.href);
+                url.hash = hash;
+                a.href = url.toString();
+            } catch (e) {
+                console.error('Invalid URL for language link:', a.href);
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', updateLangLinkHashes);
+    window.addEventListener('hashchange', updateLangLinkHashes, false);
+</script>
+
+<style>
+    .language-selector {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .language-selector ul {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .lang-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(105, 25, 255, 0.1);
+        border: 1px solid rgba(105, 25, 255, 0.3);
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: #6919ff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+        text-decoration: none;
+    }
+
+    .lang-link:hover {
+        background: rgba(105, 25, 255, 0.2);
+        border-color: rgba(105, 25, 255, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(105, 25, 255, 0.2);
+    }
+
+    .lang-link.active {
+        background: rgba(105, 25, 255, 0.3);
+        border-color: rgba(105, 25, 255, 0.6);
+    }
+
+    .flag {
+        font-size: 16px;
+        line-height: 1;
+    }
+
+    .lang-text {
+        font-family: monospace;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .language-selector {
+            top: 10px;
+            right: 10px;
+        }
+
+        .lang-link {
+            padding: 6px 10px;
+        }
+    }
+</style>

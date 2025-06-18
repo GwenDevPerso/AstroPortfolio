@@ -1,27 +1,12 @@
 ---
-import data from '../../data/projects.json';
-import Layout from '../../layouts/Layout.astro';
-import {getLangFromUrl, useTranslations} from '../../i18n/utils';
-import {defaultLang} from '../../i18n/ui';
+import Layout from '../../../layouts/Layout.astro';
+import data from '../../../data/projects.json';
+import {useTranslations, getLangFromUrl} from '../../../i18n/utils';
+import {defaultLang} from '../../../i18n/ui';
 
-export function getStaticPaths() {
-    // Générer les chemins pour les projets français
-    const paths: any[] = [];
-    data.fr.forEach((project: any) => {
-        paths.push({params: {slug: project.id.toString()}});
-    });
-    return paths;
-}
 const {slug} = Astro.params;
-
-// Utiliser le système i18n selon la documentation Astro
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-// Trouver le projet correspondant dans la langue appropriée
-const projects = data[lang as keyof typeof data];
-const currentProject = projects.find((p: any) => p.id === parseInt(slug || '0'));
-
 const projets = data[lang as keyof typeof data];
 const projet = projets.find((p) => p.id === Number(slug));
 
@@ -36,34 +21,35 @@ const backToHomePath = () => {
 
 <Layout title={projet?.name || t('projects.notFound')} lang={lang}>
     <main class="container">
-        <a href={backToHomePath()} class="button">{t('projects.backToHome')}</a>
-
         {
-            currentProject ? (
-                <div class="project">
-                    <h1 id="project-name">{currentProject.name}</h1>
-                    <h3 id="project-company">
-                        {currentProject.company} - {currentProject.location}
-                    </h3>
-                    <p>
-                        <strong id="project-label">{currentProject.label}</strong>
-                    </p>
-                    <p id="project-dates">
-                        {currentProject.startingDate} - {currentProject.endingDate}
-                    </p>
-                    <div class="tags" id="project-technologies">
-                        {currentProject.technologies.map((tech: string) => (
-                            <span class="tag">{tech}</span>
-                        ))}
+            projet ? (
+                <div class="card-projet">
+                    <div class="card-header">
+                        <h2>{projet.name}</h2>
                     </div>
-                    <p id="project-description">{currentProject.description}</p>
-                    {currentProject.link && (
-                        <div class="button-container">
-                            <a class="button" href={currentProject.link} target="_blank">
-                                {t('projects.viewProject')}
-                            </a>
-                        </div>
-                    )}
+                    <div class="card-content">
+                        <p>
+                            <strong>{t('projects.label')}:</strong> {projet.label}
+                        </p>
+                        <p>
+                            <strong>{t('projects.company')}:</strong> {projet.company}
+                        </p>
+                        <p>
+                            <strong>{t('projects.startingDate')}:</strong> {projet.startingDate}
+                        </p>
+                        <p>
+                            <strong>{t('projects.endingDate')}:</strong> {projet.endingDate}
+                        </p>
+                        <p>
+                            <strong>{t('projects.location')}:</strong> {projet.location}
+                        </p>
+                        <p>
+                            <strong>{t('projects.technologies')}:</strong> {projet.technologies.join(', ')}
+                        </p>
+                        <p>
+                            <strong>{t('projects.description')}:</strong> {projet.description}
+                        </p>
+                    </div>
                     <div class="card-footer">
                         <a href={backToHomePath()} class="back-link">
                             {t('projects.backToHome')}
@@ -71,9 +57,20 @@ const backToHomePath = () => {
                     </div>
                 </div>
             ) : (
-                <div>
-                    <h1>{t('projects.notFound')}</h1>
-                    <p>{t('projects.notFoundDesc').replace('{id}', slug || '')}</p>
+                <div class="card-projet">
+                    <div class="card-header">
+                        <h2>{t('projects.notFound')}</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            {t('projects.notFoundDesc')} {slug}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href={backToHomePath()} class="back-link">
+                            {t('projects.backToHome')}
+                        </a>
+                    </div>
                 </div>
             )
         }
