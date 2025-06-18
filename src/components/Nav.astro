@@ -37,6 +37,8 @@ const translatePath = useTranslatedPath(lang);
         transition: all 0.3s ease;
         border-radius: 8px;
         font-size: 14px;
+        display: flex;
+        align-items: center;
     }
     .main-nav a:hover {
         color: #ffffff;
@@ -45,5 +47,11 @@ const translatePath = useTranslatedPath(lang);
     .main-nav a.active {
         background: rgba(105, 25, 255, 0.5);
         color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+        .main-nav {
+            display: none;
+        }
     }
 </style>
