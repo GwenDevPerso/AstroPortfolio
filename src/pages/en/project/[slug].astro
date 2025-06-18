@@ -4,11 +4,17 @@ import data from '../../../data/projects.json';
 import {useTranslations, getLangFromUrl} from '../../../i18n/utils';
 import {defaultLang} from '../../../i18n/ui';
 
+export function getStaticPaths() {
+    const paths = data.en.map((project) => ({
+        params: {slug: project.id.toString()},
+    }));
+    return paths;
+}
+
 const {slug} = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const projets = data[lang as keyof typeof data];
-const projet = projets.find((p) => p.id === Number(slug));
+const projet = data[lang as keyof typeof data].find((p) => p.id === Number(slug));
 
 const backToHomePath = () => {
     const basePath = import.meta.env.BASE_URL;
@@ -62,9 +68,7 @@ const backToHomePath = () => {
                         <h2>{t('projects.notFound')}</h2>
                     </div>
                     <div class="card-content">
-                        <p>
-                            {t('projects.notFoundDesc')} {slug}
-                        </p>
+                        <p>{t('projects.notFoundDesc', {id: slug})}</p>
                     </div>
                     <div class="card-footer">
                         <a href={backToHomePath()} class="back-link">
@@ -79,72 +83,51 @@ const backToHomePath = () => {
 
 <style>
     .container {
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .button-container {
         display: flex;
         justify-content: center;
-        margin-top: 12px;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
     }
-    .button {
-        max-width: 150px;
-        height: 30px;
-        position: relative;
-        overflow: hidden;
+    .card-projet {
+        background: #0c1021;
+        border: 1px solid #6919ff4d;
+        border-radius: 12px;
+        padding: 2rem;
+        max-width: 800px;
+        width: 100%;
+        box-shadow: 0 8px 20px rgba(105, 25, 255, 0.3);
+    }
+    .card-header h2 {
+        margin: 0 0 1.5rem 0;
+        font-size: 2rem;
+        color: #f8f9fa;
+        text-align: center;
+    }
+    .card-content p {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+        color: #e0e0e0;
+    }
+    .card-content strong {
+        color: #f8f9fa;
+    }
+    .card-footer {
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .back-link {
         text-decoration: none;
         color: #6919ff;
         border: 1px solid #6919ff4d;
         background-color: #6919ff1a;
         border-radius: 6px;
-        padding: 4px 16px;
+        padding: 8px 18px;
         cursor: pointer;
         transition: all 0.3s ease;
         font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
-
-    .button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: #6919ff33;
-        transition: left 1s ease;
-    }
-
-    .button:hover::before {
-        left: 0;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 12px;
-    }
-
-    .tag {
-        background: #333;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 12px;
-        font-weight: 500;
-    }
-
-    .project {
-        margin: 0 15vw;
-    }
-
-    @media (max-width: 768px) {
-        .project {
-            margin: 0;
-        }
+    .back-link:hover {
+        background-color: #6919ff33;
     }
 </style>

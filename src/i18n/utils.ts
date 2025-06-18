@@ -44,28 +44,35 @@ export function getRouteFromUrl(url: URL): string | undefined {
 }
 
 export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: string) {
+  return function t(key: string, replacements?: Record<string, string | number>) {
     const keys = key.split('.');
-    let value: any = ui[lang];
+    let translation: any = ui[lang];
     
     for (const k of keys) {
-      if (value && typeof value === 'object') {
-        value = value[k];
+      if (translation && typeof translation === 'object' && k in translation) {
+        translation = translation[k];
       } else {
         // Fallback to default language
-        let fallbackValue: any = ui[defaultLang];
+        let fallback: any = ui[defaultLang];
         for (const fk of keys) {
-          if (fallbackValue && typeof fallbackValue === 'object') {
-            fallbackValue = fallbackValue[fk];
+          if (fallback && typeof fallback === 'object' && fk in fallback) {
+            fallback = fallback[fk];
           } else {
-            return key;
+            return key; // Return key if not found
           }
         }
-        return fallbackValue || key;
+        translation = fallback;
+        break; 
       }
     }
     
-    return value || key;
+    if (typeof translation === 'string' && replacements) {
+        for (const [placeholder, value] of Object.entries(replacements)) {
+            translation = translation.replace(`{${placeholder}}`, String(value));
+        }
+    }
+    
+    return translation || key;
   }
 }
 
@@ -88,7 +95,7 @@ export function useTranslatedPath(lang: keyof typeof ui) {
       routes[pathName];
     const translatedPath = hasTranslation
       ? '/' + routes[pathName]
-      : path;
+      : '/' + pathName;
 
     const langPath = !showDefaultLang && l === defaultLang ? '' : `/${l}`;
     const finalPath = `${base}${langPath}${translatedPath}`;

@@ -205,10 +205,9 @@ const projets = data[lang];
 
     // Fonction pour naviguer vers le détail d'un projet
     function navigateTo(item: any) {
-        const basePath = import.meta.env.BASE_URL;
-        const lang = window.location.pathname.startsWith(`${basePath}/en`) ? 'en' : 'fr';
-        const langPath = lang !== 'fr' ? `/${lang}` : '';
-        window.location.href = `${basePath}${langPath}/project/${item.id}`;
+        const currentPath = window.location.pathname;
+        const lang = currentPath.startsWith('/en') ? '/en' : '';
+        window.location.href = `${lang}/project/${item.id}`;
     }
 
     // Déclarer les types pour les fonctions globales
@@ -695,6 +694,7 @@ const projets = data[lang];
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 50px;
     }
 
     .card {
