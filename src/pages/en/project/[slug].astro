@@ -1,7 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import data from '../../../data/projects.json';
-import {useTranslations, getLangFromUrl} from '../../../i18n/utils';
+import {useTranslations, getLangFromUrl, useTranslatedPath} from '../../../i18n/utils';
 import {defaultLang} from '../../../i18n/ui';
 
 export function getStaticPaths() {
@@ -14,15 +14,8 @@ export function getStaticPaths() {
 const {slug} = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 const projet = data[lang as keyof typeof data].find((p) => p.id === Number(slug));
-
-const backToHomePath = () => {
-    const basePath = import.meta.env.BASE_URL;
-    if (lang === defaultLang) {
-        return basePath ? basePath : '/';
-    }
-    return `${basePath}/${lang}`;
-};
 ---
 
 <Layout title={projet?.name || t('projects.notFound')} lang={lang}>
@@ -57,7 +50,7 @@ const backToHomePath = () => {
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href={backToHomePath()} class="back-link">
+                        <a href={translatePath('/')} class="back-link">
                             {t('projects.backToHome')}
                         </a>
                     </div>
@@ -71,7 +64,7 @@ const backToHomePath = () => {
                         <p>{t('projects.notFoundDesc', {id: slug})}</p>
                     </div>
                     <div class="card-footer">
-                        <a href={backToHomePath()} class="back-link">
+                        <a href={translatePath('/')} class="back-link">
                             {t('projects.backToHome')}
                         </a>
                     </div>
