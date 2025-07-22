@@ -17,7 +17,7 @@ export const ui = {
     hero: {
       name: "Gwenael Bihan",
       title: "Développeur Fullstack Web & Mobile Freelance",
-      location: "Basé à Rennes.",
+      location: "Basé à Barcelona.",
       email: "Email",
       malt: "Malt",
       linkedin: "Linkedin"
@@ -75,7 +75,7 @@ export const ui = {
     hero: {
       name: "Gwenael Bihan",
       title: "Fullstack Web & Mobile Freelance Developer",
-      location: "Based in Rennes, France.",
+      location: "Based in Barcelona, Spain.",
       email: "Email",
       malt: "Malt",
       linkedin: "Linkedin"

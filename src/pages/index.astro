@@ -11,30 +11,31 @@ const t = useTranslations(lang);
 // Vraies données des compétences avec icônes et niveaux
 const skills = [
     {name: 'HTML', icon: '/assets/logo/html.svg', color: '', level: 5},
-    {name: 'CSS', icon: '/assets/logo/css.svg', level: 3},
     {name: 'TypeScript', icon: '/assets/logo/ts.svg', level: 4},
     {name: 'Angular', icon: '/assets/logo/angular.svg', level: 4},
+    {name: 'CSS', icon: '/assets/logo/css.svg', level: 3},
     {name: 'React', icon: '/assets/logo/react.png', level: 3},
-    {name: 'Vue', icon: '/assets/logo/vue.svg', level: 2},
     {name: 'NodeJS', icon: '/assets/logo/nodejs.svg', level: 3},
     {name: 'C', icon: '/assets/logo/c.svg', level: 3},
     {name: 'C++', icon: '/assets/logo/c++.svg', level: 3},
     {name: 'Ionic', icon: '/assets/logo/ionic.svg', level: 3},
+    {name: 'React Native', icon: '/assets/logo/react.png', level: 3},
     {name: 'Elasticsearch', icon: '/assets/logo/elasticsearch.svg', level: 3},
     {name: 'Graphql', icon: '/assets/logo/graphql.svg', level: 3},
     {name: 'MySQL', icon: '/assets/logo/mysql.svg', level: 3},
     {name: 'Git', icon: '/assets/logo/git.svg', level: 3},
     {name: 'Nest', icon: '/assets/logo/nest.png', level: 3},
-    {name: 'Next', icon: '/assets/logo/next.png', level: 2},
     {name: 'Jenkins', icon: '/assets/logo/jenkins.png', level: 3},
-    {name: 'Web3', icon: '/assets/logo/web3.png', level: 2},
     {name: 'MongoDB', icon: '/assets/logo/mongo.png', level: 3},
+    {name: 'Vue', icon: '/assets/logo/vue.svg', level: 2},
+    {name: 'Next', icon: '/assets/logo/next.png', level: 2},
+    {name: 'Web3', icon: '/assets/logo/web3.png', level: 2},
 ];
 
 const projets = data[lang];
 ---
 
-<Layout title="Gwenael Bihan - Développeur Freelance" lang={lang}>
+<Layout title="Gwenael Bihan - Fullstack Web & Mobile Freelance Developer" lang={lang}>
     <main class="container">
         <section class="section" id="landing">
             <div class="card">
@@ -492,6 +493,7 @@ const projets = data[lang];
 
     .skill-name {
         font-weight: 500;
+        font-size: 12px;
         margin-right: auto;
         color: #333;
     }

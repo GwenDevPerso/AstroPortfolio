@@ -22,7 +22,7 @@
             "startingDate": "2024-01-01",
             "endingDate": "2025-09-30",
             "location": "Boardeaux",
-            "technologies": ["Angular", "NGRX", "Nestjs", "MongoDB", "GraphQl", "NGRX", "Jenkins"],
+            "technologies": ["Angular", "NGRX", "Nestjs", "MongoDB", "GraphQl", "Jenkins"],
             "link": "https://www.piano.io/product/analytics",
             "description": "Au sein d'une équipe de développement agile, j'ai activement contribué au développement des applications frontend et backend de la suite PIANO Analytics, une plateforme d'analyse de données destinée à fournir des insights puissants pour la prise de décision stratégique. J'ai participé à la mise en œuvre de fonctionnalités clés, en veillant à la qualité du code grâce à l'écriture systématique de tests unitaires et à l'adoption de bonnes pratiques de développement. Dans un souci de performance et de fiabilité, j'ai également mis en place et maintenu des pipelines d'intégration continue (CI), permettant l'automatisation des tests et le déploiement fluide des mises à jour. Ce travail m'a permis d'acquérir une solide expérience en développement fullstack, tout en évoluant dans un environnement orienté produit, performance et data."
         },
@@ -74,7 +74,7 @@
             "startingDate": "2022-04-04",
             "endingDate": "2022-07-04",
             "location": "Rennes",
-            "technologies": ["React", "TypeScript", "Forestry"],
+            "technologies": ["React", "Redux", "TypeScript", "Forestry"],
             "link": "https://www.fruggr.io/fr/",
             "description": "J'ai réalisé la refonte du site web avec une équipe composée d'un designer et d'une chargée de communication. Notre objectif principal était double. D'une part, nous voulions booster les performances du site pour fournir une expérience utilisateur encore meilleure, plus fluide et plus rapide. D'autre part, on a cherché à intégrer les meilleures pratiques SEO pour améliorer la visibilité du site sur les moteurs de recherche. C'était une collaboration enrichissante et pleine de défis où nous avons combiné nos compétences et notre expertise pour créer un site optimisé et esthétiquement attrayant. Nous avons mis un point d'honneur à garantir que le site non seulement fonctionne efficacement, mais aussi qu'il soit bien référencé pour attirer plus de trafic et améliorer sa visibilité en ligne. Au final, cette refonte nous a permis de présenter un site de qualité supérieure, optimisé pour les moteurs de recherche et centré sur l'utilisateur..."
         },
@@ -113,7 +113,7 @@
             "startingDate": "2020-03-16",
             "endingDate": "2020-08-31",
             "location": "Rennes",
-            "technologies": ["React", "Nodejs", "MySql"],
+            "technologies": ["React", "Redux", "Nodejs", "MySql"],
             "link": "https://www.hoppen.care/nos-solutions/",
             "description": "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de suivi de patients dans les hôpitaux. J'ai pu développer différentes fontionnalités front et back pour ce projet."
         },
@@ -126,7 +126,7 @@
             "startingDate": "2020-02-03",
             "endingDate": "2020-08-31",
             "location": "Rennes",
-            "technologies": ["React", "Nodejs", "MySql"],
+            "technologies": ["React", "Redux", "Nodejs", "MySql"],
             "link": "https://www.hoppen.care/nos-solutions/",
             "description": "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de visioconférence disponible pour les EHPAD pour rompre l'isolement et maintenir le lien entre les patients, les résidents, leurs familles et leurs proches. J'ai pu développer différentes fontionnalités front et back pour ce projet."
         },
@@ -167,7 +167,7 @@
             "startingDate": "2024-01-01",
             "endingDate": "2025-09-30",
             "location": "Boardeaux",
-            "technologies": ["Angular", "NGRX", "Nestjs", "MongoDB", "GraphQl", "NGRX", "Jenkins"],
+            "technologies": ["Angular", "NGRX", "Nestjs", "MongoDB", "GraphQl", "Jenkins"],
             "link": "https://www.piano.io/product/analytics",
             "description": "I worked in an agile development team to develop the frontend and backend of the PIANO Analytics platform, a data analysis platform designed to provide powerful insights for strategic decision-making. I participated in the implementation of key features, ensuring code quality through systematic unit testing and adherence to best development practices. In order to improve performance and reliability, I also set up and maintained CI pipelines, automating tests and enabling smooth deployment of updates. This experience gave me a solid understanding of fullstack development, while working in a product-focused environment that prioritizes performance and data."
         },
@@ -258,7 +258,7 @@
             "startingDate": "2020-03-16",
             "endingDate": "2020-08-31",
             "location": "Rennes",
-            "technologies": ["React", "Nodejs", "MySql"],
+            "technologies": ["React", "Redux", "Nodejs", "MySql"],
             "link": "https://www.hoppen.care/nos-solutions/",
             "description": "During my first internship, I joined a development team at Hoppen. For this project, I participated in the development of a patient tracking application in hospitals. I was able to develop different front and back features for this project."
         },
@@ -271,7 +271,7 @@
             "startingDate": "2020-02-03",
             "endingDate": "2020-08-31",
             "location": "Rennes",
-            "technologies": ["React", "Nodejs", "MySql"],
+            "technologies": ["React", "Redux", "Nodejs", "MySql"],
             "link": "https://www.hoppen.care/nos-solutions/",
             "description": "During my first internship, I joined a development team at Hoppen. For this project, I participated in the development of a video conferencing application for EHPADs to break isolation and maintain links between patients, residents, their families and their relatives. I was able to develop different front and back features for this project."
         },
