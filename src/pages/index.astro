@@ -49,7 +49,7 @@ const projets = data[lang];
                             <h1>{t('hero.title')}</h1>
                             <p>{t('hero.location')}</p>
                             <div class="row-profile">
-                                <button class="button-profile" onclick="copyToClipboard()">
+                                <button class="button-profile" onclick="openMailto()">
                                     <span>{t('hero.email')}</span>
                                 </button>
                                 <button class="button-profile" onclick="onClickLink(1)">
@@ -185,14 +185,34 @@ const projets = data[lang];
 </footer>
 
 <script>
-    // Fonction pour copier l'email dans le presse-papier
-    async function copyToClipboard() {
-        try {
-            await navigator.clipboard.writeText('gwenael.bihan@protonmail.com');
-            alert('Texte copié: gwenael.bihan@protonmail.com');
-        } catch (err) {
-            alert('Erreur lors de la copie: ' + err);
-        }
+    // Build an email address without exposing it in plain HTML.
+    function buildEmailAddress(): string {
+        const localPartChars: ReadonlyArray<string> = ['g', 'w', 'e', 'n', 'a', 'e', 'l', '.', 'b', 'i', 'h', 'a', 'n'];
+        const domainChars: ReadonlyArray<string> = [
+            'p',
+            'r',
+            'o',
+            't',
+            'o',
+            'n',
+            'm',
+            'a',
+            'i',
+            'l',
+            '.',
+            'c',
+            'o',
+            'm',
+        ];
+
+        return `${localPartChars.join('')}@${domainChars.join('')}`;
+    }
+
+    function openMailto(): void {
+        const email = buildEmailAddress();
+        const subject = encodeURIComponent('Contact from my portfolio');
+
+        window.location.href = `mailto:${email}?subject=${subject}`;
     }
 
     // Fonction pour ouvrir les liens externes
@@ -214,14 +234,14 @@ const projets = data[lang];
     // Déclarer les types pour les fonctions globales
     declare global {
         interface Window {
-            copyToClipboard: () => Promise<void>;
+            openMailto: () => void;
             onClickLink: (int: number) => void;
             navigateTo: (item: any) => void;
         }
     }
 
     // Rendre les fonctions globales pour les événements onclick
-    (window as any).copyToClipboard = copyToClipboard;
+    (window as any).openMailto = openMailto;
     (window as any).onClickLink = onClickLink;
     (window as any).navigateTo = navigateTo;
 
