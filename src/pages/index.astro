@@ -3,33 +3,76 @@ import Layout from '../layouts/Layout.astro';
 import data from '../data/projects.json';
 import {Image} from 'astro:assets';
 import {getLangFromUrl, useTranslations} from '../i18n/utils';
+import '../styles/home.css';
 
 // Utiliser le système i18n selon la documentation Astro
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+type Skill = {
+    name: string;
+    icon: string;
+    level: number;
+};
+
+type SkillGroup = {
+    id: 'languages' | 'frameworks' | 'databases' | 'devops';
+    skills: Skill[];
+};
+
 // Vraies données des compétences avec icônes et niveaux
-const skills = [
-    {name: 'HTML', icon: '/assets/logo/html.svg', color: '', level: 5},
-    {name: 'TypeScript', icon: '/assets/logo/ts.svg', level: 4},
-    {name: 'Angular', icon: '/assets/logo/angular.svg', level: 4},
-    {name: 'CSS', icon: '/assets/logo/css.svg', level: 3},
-    {name: 'React', icon: '/assets/logo/react.png', level: 3},
-    {name: 'NodeJS', icon: '/assets/logo/nodejs.svg', level: 3},
-    {name: 'C', icon: '/assets/logo/c.svg', level: 3},
-    {name: 'C++', icon: '/assets/logo/c++.svg', level: 3},
-    {name: 'Ionic', icon: '/assets/logo/ionic.svg', level: 3},
-    {name: 'React Native', icon: '/assets/logo/react.png', level: 3},
-    {name: 'Elasticsearch', icon: '/assets/logo/elasticsearch.svg', level: 3},
-    {name: 'Graphql', icon: '/assets/logo/graphql.svg', level: 3},
-    {name: 'MySQL', icon: '/assets/logo/mysql.svg', level: 3},
-    {name: 'Git', icon: '/assets/logo/git.svg', level: 3},
-    {name: 'Nest', icon: '/assets/logo/nest.png', level: 3},
-    {name: 'Jenkins', icon: '/assets/logo/jenkins.png', level: 3},
-    {name: 'MongoDB', icon: '/assets/logo/mongo.png', level: 3},
-    {name: 'Vue', icon: '/assets/logo/vue.svg', level: 2},
-    {name: 'Next', icon: '/assets/logo/next.png', level: 2},
-    {name: 'Web3', icon: '/assets/logo/web3.png', level: 2},
+const skillGroups: SkillGroup[] = [
+    {
+        id: 'languages',
+        skills: [
+            {name: 'HTML', icon: '/assets/logo/html.svg', level: 5},
+            {name: 'CSS', icon: '/assets/logo/css.svg', level: 4},
+            {name: 'TypeScript', icon: '/assets/logo/ts.svg', level: 4},
+            {name: 'Python', icon: '/assets/logo/python.svg', level: 3},
+            {name: 'C', icon: '/assets/logo/c.svg', level: 3},
+            {name: 'C++', icon: '/assets/logo/c++.svg', level: 3},
+            {name: 'Java', icon: '/assets/logo/java.png', level: 3},
+        ],
+    },
+    {
+        id: 'frameworks',
+        skills: [
+            {name: 'Angular', icon: '/assets/logo/angular.svg', level: 4},
+            {name: 'React', icon: '/assets/logo/react.png', level: 4},
+            {name: 'Vue', icon: '/assets/logo/vue.svg', level: 2},
+            {name: 'NodeJS', icon: '/assets/logo/nodejs.svg', level: 3},
+            {name: 'FastAPI', icon: '/assets/logo/fastapi.svg', level: 3},
+            {name: 'Ionic', icon: '/assets/logo/ionic.svg', level: 3},
+            {name: 'React Native', icon: '/assets/logo/react.png', level: 3},
+            {name: 'Nest', icon: '/assets/logo/nest.png', level: 3},
+            {name: 'Next', icon: '/assets/logo/next.png', level: 2},
+            {name: 'Graphql', icon: '/assets/logo/graphql.svg', level: 3},
+            {name: 'Web3', icon: '/assets/logo/web3.png', level: 2},
+        ],
+    },
+    {
+        id: 'databases',
+        skills: [
+            {name: 'MySQL', icon: '/assets/logo/mysql.svg', level: 3},
+            {name: 'Postgres', icon: '/assets/logo/mysql.svg', level: 3},
+            {name: 'MongoDB', icon: '/assets/logo/mongo.png', level: 3},
+            {name: 'Elasticsearch', icon: '/assets/logo/elasticsearch.svg', level: 3},
+            {name: 'Supabase', icon: '/assets/logo/supabase.png', level: 3},
+        ],
+    },
+    {
+        id: 'devops',
+        skills: [
+            {name: 'Git', icon: '/assets/logo/git.svg', level: 3},
+            {name: 'Github', icon: '/assets/logo/github.jpg', level: 3},
+            {name: 'Github Actions', icon: '/assets/logo/github.jpg', level: 3},
+            {name: 'Gitlab', icon: '/assets/logo/gitlab.png', level: 3},
+            {name: 'Docker', icon: '/assets/logo/docker.svg', level: 3},
+            {name: 'Jenkins', icon: '/assets/logo/jenkins.png', level: 3},
+            {name: 'Aws', icon: '/assets/logo/aws.png', level: 3},
+            {name: 'Gcp', icon: '/assets/logo/gcp.png', level: 3},
+        ],
+    },
 ];
 
 const projets = data[lang];
@@ -42,16 +85,16 @@ const projets = data[lang];
                 <div class="grid">
                     <div class="row center">
                         <div class="col-md-4 col-xs-12 center">
-                            <Image id="me" src={'/assets/pack.png'} alt="Gwenael Bihan" width={150} height={300} />
+                            <Image id="me" src={'/assets/me.jpg'} alt="Gwenael Bihan" width={130} height={200} />
                         </div>
                         <div class="col-md-8 col-xs-12">
                             <p class="name">{t('hero.name')}</p>
                             <h1>{t('hero.title')}</h1>
                             <p>{t('hero.location')}</p>
                             <div class="row-profile">
-                                <button class="button-profile" onclick="openMailto()">
+                                <!-- <button class="button-profile" onclick="openMailto()">
                                     <span>{t('hero.email')}</span>
-                                </button>
+                                </button> -->
                                 <button class="button-profile" onclick="onClickLink(1)">
                                     <span>{t('hero.malt')}</span>
                                 </button>
@@ -89,13 +132,22 @@ const projets = data[lang];
                         <div class="card-content">
                             <div class="skills">
                                 {
-                                    skills.map((skill) => (
-                                        <div class="skill-item">
-                                            <img src={skill.icon} alt={skill.name} class="skill-icon" />
-                                            <span class="skill-name">{skill.name}</span>
-                                            <div class="skill-level">
-                                                {Array.from({length: 5}, (_, i) => (
-                                                    <span class={`star ${i < skill.level ? 'filled' : ''}`}>★</span>
+                                    skillGroups.map((group) => (
+                                        <div class="skill-group">
+                                            <h3 class="skill-group-title">{t(`skills.groups.${group.id}`)}</h3>
+                                            <div class="skill-group-list">
+                                                {group.skills.map((skill) => (
+                                                    <div class="skill-item">
+                                                        <img src={skill.icon} alt={skill.name} class="skill-icon" />
+                                                        <span class="skill-name">{skill.name}</span>
+                                                        <div class="skill-level">
+                                                            {Array.from({length: 5}, (_, i) => (
+                                                                <span class={`star ${i < skill.level ? 'filled' : ''}`}>
+                                                                    ★
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                    </div>
                                                 ))}
                                             </div>
                                         </div>
@@ -285,442 +337,3 @@ const projets = data[lang];
     });
     window.addEventListener('resize', adjustAnimationDuration);
 </script>
-
-<style>
-    .container {
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .card {
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-    }
-
-    .contrast {
-        background: #0c1021;
-        border: 1px solid #6919ff4d;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-    }
-
-    .contrast {
-        background: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .contrast::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: radial-gradient(
-            circle,
-            rgba(105, 25, 255, 0.4) 0%,
-            rgba(105, 25, 255, 0.2) 30%,
-            rgba(105, 25, 255, 0.1) 60%,
-            transparent 70%
-        );
-        transform: translate(-50%, -50%);
-        transition: all 0.6s ease;
-        pointer-events: none;
-        opacity: 0;
-        border-radius: 50%;
-        animation: none;
-    }
-
-    .contrast:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(105, 25, 255, 0.3);
-    }
-
-    .contrast:hover::before {
-        width: 250%;
-        height: 250%;
-        opacity: 1;
-        animation: sparkle 2s ease-out infinite;
-    }
-
-    .section {
-        margin-bottom: 40px;
-        background: none;
-        .card {
-            background: none;
-        }
-    }
-
-    .grid {
-        display: grid;
-        gap: 30px;
-    }
-
-    .row,
-    .row-profile {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        align-items: stretch;
-    }
-
-    .row-profile {
-        margin-top: 50px;
-    }
-
-    .row.center {
-        align-items: center;
-        justify-content: center;
-    }
-
-    .col-4 {
-        flex: 1;
-        min-width: 150px;
-    }
-
-    .col-md-4 {
-        flex: 0 0 calc(33.333% - 20px);
-        min-width: 250px;
-    }
-
-    .col-md-6 {
-        flex: 0 0 calc(50% - 20px);
-        min-width: 300px;
-    }
-
-    .col-md-8 {
-        flex: 0 0 calc(66.666% - 20px);
-    }
-
-    .col-xs-12 {
-        flex: 1;
-    }
-
-    .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #me {
-        border-radius: 50%;
-        object-fit: contain;
-        transition: filter 0.3s ease;
-    }
-
-    #me:hover {
-        filter: grayscale(100%);
-    }
-
-    .name {
-        font-size: 1.1rem;
-        color: #888;
-        margin: 0;
-    }
-
-    h1 {
-        color: #f8f9fa;
-        font-size: 1.8rem;
-        margin: 8px 0;
-        line-height: 1.3;
-    }
-
-    button {
-        color: #6919ff;
-        padding: 4px 16px;
-        border-radius: 6px;
-        border: 1px solid #6919ff4d;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        background-color: #6919ff1a;
-        width: 100%;
-    }
-
-    button:hover {
-        background-color: #6919ff33;
-    }
-
-    .button-profile {
-        max-width: 100px;
-        height: 30px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .button-profile::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: #6919ff33;
-        transition: left 1s ease;
-    }
-
-    .button-profile:hover::before {
-        left: 0;
-    }
-
-    .button-profile span {
-        position: relative;
-        z-index: 1;
-    }
-
-    /* Skills */
-    .skills {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-    }
-
-    .skill-item {
-        display: flex;
-        align-items: center;
-        padding: 12px;
-        background: #f8f9fa;
-        border-radius: 8px;
-        transition: transform 0.2s ease;
-    }
-
-    .skill-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .skill-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 12px;
-        object-fit: contain;
-    }
-
-    .skill-name {
-        font-weight: 500;
-        font-size: 12px;
-        margin-right: auto;
-        color: #333;
-    }
-
-    .skill-level {
-        display: flex;
-        gap: 2px;
-    }
-
-    /* Stars */
-    .star {
-        color: #ddd;
-        font-size: 14px;
-    }
-
-    .star.filled {
-        color: #ffc107;
-    }
-
-    /* Tags */
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 12px;
-    }
-
-    .tag {
-        background: #333;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 12px;
-        font-weight: 500;
-    }
-
-    .card {
-        position: relative;
-        z-index: 2;
-    }
-
-    /* Projects */
-    .projects-container {
-        display: grid;
-        gap: 20px;
-        padding: 20px;
-        grid-template-columns: 1fr; /* Par défaut: 1 colonne pour mobile */
-    }
-
-    .project-card {
-        background: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .project-card::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: radial-gradient(
-            circle,
-            rgba(105, 25, 255, 0.4) 0%,
-            rgba(105, 25, 255, 0.2) 30%,
-            rgba(105, 25, 255, 0.1) 60%,
-            transparent 70%
-        );
-        transform: translate(-50%, -50%);
-        transition: all 0.6s ease;
-        pointer-events: none;
-        opacity: 0;
-        border-radius: 50%;
-        animation: none;
-    }
-
-    .project-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(105, 25, 255, 0.3);
-    }
-
-    .project-card:hover::before {
-        width: 250%;
-        height: 250%;
-        opacity: 1;
-        animation: sparkle 2s ease-out infinite;
-    }
-
-    /* Footer */
-    @keyframes sparkle {
-        0% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0);
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
-
-    .mb-10 {
-        margin-bottom: 10px;
-        font-size: 14px;
-        color: #888;
-    }
-
-    .service-content {
-        line-height: 1.8;
-        color: #e0e0e0;
-        font-size: 14px;
-    }
-
-    .footer {
-        background: #333;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 40px;
-    }
-
-    .footer-content p {
-        margin: 0;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .row {
-            flex-direction: column;
-        }
-
-        .row-profile {
-            justify-content: center;
-        }
-
-        .button-profile {
-            max-width: 100px;
-            height: 30px;
-        }
-
-        .project-card {
-            max-width: unset;
-        }
-
-        .col-md-4,
-        .col-md-6,
-        .col-md-8 {
-            flex: 1;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-        }
-
-        .container {
-            padding: 10px;
-            width: 100%;
-        }
-
-        .skills {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    /* Tablette: 2 colonnes */
-    @media (min-width: 600px) {
-        .projects-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    /* Petit desktop: 3 colonnes */
-    @media (min-width: 900px) {
-        .projects-container {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    /* Grand desktop: 4 colonnes */
-    @media (min-width: 1200px) {
-        .projects-container {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
-    #landing {
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 50px;
-    }
-
-    .card {
-        position: relative;
-        z-index: 2;
-    }
-</style>

@@ -1,6 +1,19 @@
 {
     "fr": [
         {
+            "id": 0,
+            "name": "Smartbiotic",
+            "img": "",
+            "label": "Développeur Fullstack Freelance",
+            "company": "Smartbiotic",
+            "startingDate": "2026-03-01",
+            "endingDate": "2026-06-01",
+            "location": "Montreal",
+            "technologies": ["React", "FastAPI", "Postgres", "Docker", "Git", "Github", "Github Actions", "Gitlab", "Java", "Plotly", "Redux", "SSO"],
+            "link": "https://www.smartbiotic.ai/",
+            "description": "Development du front-end et du back-end, avec des tests unitaires et end-to-end (E2E) pour garantir la fiabilité et la qualité. \n\nCréation de graphiques avec la librairie Plotly \n\nInstallation du serveur, configuration du réseau, implémentation d'un système de Single Sign-On (SSO), GitHub Actions CI. \n\nRefactorisation de l'application front-end, amélioration de l'architecture suivant les meilleures pratiques, setup d'un store Redux"
+        },
+        {
             "id": 1,
             "name": "My jam",
             "img": "",
@@ -158,6 +171,19 @@
         }
     ],
     "en": [
+        {
+            "id": 0,
+            "name": "Smartbiotic",
+            "img": "",
+            "label": "Fullstack Developer Freelance",
+            "company": "Smartbiotic",
+            "startingDate": "2026-03-01",
+            "endingDate": "2026-06-01",
+            "location": "Montreal",
+            "technologies": ["React", "FastAPI", "Postgres", "Docker", "Git", "Github", "Github Actions", "Gitlab", "Java", "Plotly", "Redux", "SSO"],
+            "link": "https://www.smartbiotic.ai/",
+            "description": "Development of both front-end and back-end features, with systematic unit and end-to-end (E2E) testing to ensure reliability and quality. \n\nGraph creation with Plotly library \n\nServer installation, network configuration, implementation of a Single Sign-On (SSO) system, GitHub Actions CI. \n\nFront-end application refactoring, architecture improvements following best practices, setup of a Redux store"
+        },
         {
             "id": 1,
             "name": "My jam",

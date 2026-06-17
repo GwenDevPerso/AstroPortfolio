@@ -1,5 +1,5 @@
 {
-  "name": "shaggy-shell",
+  "name": "Astro portflio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.2"
+    "astro": "^6.4.7"
   }
 }

@@ -24,10 +24,16 @@ export const ui = {
     },
     about: {
       title: "A propos.",
-      content: "Bonjour ! Je suis un développeur fullstack JS passionné et freelance, spécialisé dans la création de solutions web & mobiles.\n\nFort de mes compétences en JavaScript et de ma maîtrise des frameworks tels que React, Angular et Vue.js, je suis prêt à relever tous les défis pour transformer vos idées en réalités numériques.\n\nMon univers ne se limite pas au développement web. Je suis également un grand amateur de sport, je pratique la boxe et le football, ce qui m'a permis de développer un esprit d'équipe et une capacité à persévérer face aux défis. La musique occupe également une place importante dans ma vie, avec un penchant particulier pour la guitare. Ca me permet de m'exprimer, de me détendre et de stimuler ma créativité, des compétences qui se révèlent précieuses dans mon travail de développeur.\n\nEnfin, j'aime voyager et découvrir de nouvelles cultures, car cela nourrit ma curiosité et m'inspire dans mon travail. Je suis convaincu que ces expériences me permettent de concevoir des solutions plus adaptées aux besoins de mes clients, en comprenant mieux leur contexte et leurs attentes. En somme, je suis un développeur fullstack JS freelance déterminé et polyvalent, toujours à la recherche de nouvelles aventures et prêt à vous accompagner dans la réalisation de vos projets. N'hésitez pas à me contacter pour en discuter d'avantage !"
+      content: "Développeur Full-Stack avec 5 ans d'expérience, j'aide les startups à concevoir, développer et faire évoluer leurs produits numériques.\n\nSpécialisé dans les secteurs Sport et MedTech, je prends en charge l'ensemble du cycle de développement : conception, architecture, développement, déploiement et maintenance.\n\nMVP, SaaS, plateformes web, applications mobiles, APIs, cloud.\n\nOuvert à tous les secteurs où la technologie crée de la valeur.\n\n5 ans d'expérience • Full-Stack • Startup Builder • Sport & MedTech 🚀\n\n N'hésitez pas à me contacter pour en discuter d'avantage !"
     },
     skills: {
-      title: "Compétences."
+      title: "Compétences.",
+      groups: {
+        languages: "Langages",
+        frameworks: "Frameworks",
+        databases: "Bases de données",
+        devops: "DevOps",
+      },
     },
     services: {
       title: "Prestations.",
@@ -82,10 +88,16 @@ export const ui = {
     },
     about: {
       title: "About.",
-      content: "Hello! I'm a passionate fullstack JS freelance developer, specialized in creating web & mobile solutions.\n\nWith my JavaScript skills and mastery of frameworks like React, Angular and Vue.js, I'm ready to take on any challenge to transform your ideas into digital realities.\n\nMy world is not limited to web development. I'm also a big sports enthusiast, practicing boxing and football, which has allowed me to develop team spirit and the ability to persevere in the face of challenges. Music also occupies an important place in my life, with a particular fondness for guitar. It allows me to express myself, relax and stimulate my creativity, skills that prove valuable in my work as a developer.\n\nFinally, I love to travel and discover new cultures, as this nourishes my curiosity and inspires me in my work. I'm convinced that these experiences allow me to design solutions that are better adapted to my clients' needs, by better understanding their context and expectations. In short, I'm a determined and versatile fullstack JS freelance developer, always looking for new adventures and ready to support you in the realization of your projects. Don't hesitate to contact me to discuss it further!"
+      content: "Full-Stack Developer with 5 years of experience, I help startups design, develop and evolve their digital products.\n\nSpecialized in the Sport and MedTech sectors, I take charge of the entire development cycle: design, architecture, development, deployment and maintenance.\n\nMVP, SaaS, web platforms, mobile apps, APIs, cloud.\n\nOpen to all sectors where technology creates value.\n\n5 years of experience • Full-Stack • Startup Builder • Sport & MedTech 🚀\n\n Don't hesitate to contact me to discuss it further!"
     },
     skills: {
-      title: "Skills."
+      title: "Skills.",
+      groups: {
+        languages: "Languages",
+        frameworks: "Frameworks",
+        databases: "Databases",
+        devops: "DevOps",
+      },
     },
     services: {
       title: "Services.",
