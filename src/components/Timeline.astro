@@ -1,0 +1,83 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { useTranslations, type Locale } from '../i18n';
+import { timeline } from '../data/timeline';
+
+interface Props {
+    lang: Locale;
+    years: number;
+}
+
+const { lang, years } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="timeline" class="paper" aria-labelledby="timeline-title">
+    <div class="container inner">
+        <SectionLabel index={4} title={t.timeline.label} meta={t.timeline.meta(years)} id="timeline-title" />
+        <ol class="cards" data-reveal>
+            {timeline.map((entry, i) => (
+                <li class="card">
+                    <span class="period">{entry.period}</span>
+                    <span class:list={['rule', { current: i === 0 }]} aria-hidden="true"></span>
+                    <h3>{entry.title[lang]}</h3>
+                    <p>{entry.summary[lang]}</p>
+                </li>
+            ))}
+        </ol>
+    </div>
+</section>
+
+<style>
+    .inner {
+        padding-block: 100px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 1px;
+        margin: 40px 0 0;
+        padding: 0;
+        list-style: none;
+        background: var(--paper-line);
+        border: 1px solid var(--paper-line);
+    }
+
+    .card {
+        background: var(--paper);
+        padding: 24px 20px 28px;
+    }
+
+    .period {
+        display: block;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+    }
+
+    .rule {
+        display: block;
+        height: 3px;
+        margin-bottom: 16px;
+        background: var(--faint);
+    }
+
+    .rule.current {
+        background: var(--ink);
+    }
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+
+    p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: #4a4638;
+    }
+</style>

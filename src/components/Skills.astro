@@ -1,0 +1,124 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { useTranslations, type Locale } from '../i18n';
+import { skillGroups } from '../data/skills';
+import { pad } from '../lib/format';
+
+interface Props {
+    lang: Locale;
+}
+
+const t = useTranslations(Astro.props.lang);
+const entries = skillGroups.reduce((sum, group) => sum + group.skills.length, 0);
+---
+
+<section id="skills" class="container section" aria-labelledby="skills-title">
+    <SectionLabel index={2} title={t.skills.label} meta="stack.manifest" id="skills-title" />
+    <div class="manifest" data-reveal>
+        <div class="manifest-bar"><span class="accent" aria-hidden="true">◆</span><span>{t.skills.meta(entries, skillGroups.length)}</span></div>
+        {skillGroups.map((group) => (
+            <div class="row">
+                <h3 class="domain">{t.skills.groups[group.id]}</h3>
+                <ul class="chips">
+                    {group.skills.map((skill) => (
+                        <li>{skill}</li>
+                    ))}
+                </ul>
+                <span class="count">{pad(group.skills.length)}</span>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .section {
+        padding-block: 100px;
+    }
+
+    .manifest {
+        margin-top: 36px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        font-family: var(--mono);
+    }
+
+    .manifest-bar {
+        display: flex;
+        gap: 8px;
+        padding: 11px 16px;
+        border-bottom: 1px solid var(--line);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        text-transform: uppercase;
+    }
+
+    .accent {
+        color: var(--accent);
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: minmax(150px, 190px) minmax(0, 1fr) 44px;
+        gap: 18px;
+        padding: 20px 16px;
+        border-bottom: 1px solid var(--line-soft);
+        transition: background 0.2s;
+    }
+
+    .row:last-child {
+        border-bottom: none;
+    }
+
+    .row:hover {
+        background: var(--surface-hover);
+    }
+
+    .domain {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--accent);
+    }
+
+    .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+        color: var(--fg-soft);
+    }
+
+    .chips li {
+        padding: 5px 10px;
+        background: var(--chip);
+        transition:
+            background 0.15s,
+            color 0.15s;
+    }
+
+    .chips li:hover {
+        background: var(--accent);
+        color: var(--bg);
+    }
+
+    .count {
+        font-size: 12px;
+        color: var(--muted);
+        text-align: right;
+    }
+
+    @media (max-width: 720px) {
+        .row {
+            grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .chips {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+    }
+</style>

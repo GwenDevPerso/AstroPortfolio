@@ -1,0 +1,258 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/me.jpg';
+import { localizedPath, useTranslations, type Locale } from '../i18n';
+import { profile } from '../data/profile';
+import { pad } from '../lib/format';
+
+interface Props {
+    lang: Locale;
+    projectCount: number;
+}
+
+const { lang, projectCount } = Astro.props;
+const t = useTranslations(lang);
+const home = localizedPath(lang);
+const [firstName, lastName] = profile.name.split(' ');
+---
+
+<section id="top" class="container hero" aria-labelledby="hero-title">
+    <div class="intro">
+        <p class="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>{t.hero.available}</span>
+            <span class="sep" aria-hidden="true">/</span>
+            <span>{t.hero.place}</span>
+        </p>
+        <div class="identity">
+            <h1 id="hero-title">{firstName}<br />{lastName}</h1>
+            <Image
+                src={portrait}
+                alt={t.hero.portraitAlt}
+                class="avatar"
+                widths={[96, 192]}
+                sizes="96px"
+                loading="eager"
+                fetchpriority="high"
+            />
+        </div>
+        <dl class="facts">
+            <div>
+                <dt>{t.hero.role}</dt>
+                <dd>{t.hero.roleValue}</dd>
+            </div>
+            <div>
+                <dt>{t.hero.mode}</dt>
+                <dd>{t.hero.modeValue}</dd>
+            </div>
+            <div>
+                <dt>{t.hero.uptime}</dt>
+                <dd class="accent"><span data-count={profile.yearsOfExperience}>{profile.yearsOfExperience}</span> {t.hero.yearsUnit}</dd>
+            </div>
+            <div>
+                <dt>{t.hero.shipped}</dt>
+                <dd class="accent"><span data-count={projectCount}>{pad(projectCount)}</span> {t.hero.projectsUnit}</dd>
+            </div>
+        </dl>
+        <div class="ctas">
+            <a href={`${home}#contact`} class="cta primary">{t.hero.ctaContact}</a>
+            <a href={`${home}#work`} class="cta secondary">{t.hero.ctaWork}</a>
+        </div>
+    </div>
+
+    <div class="side">
+        <figure class="panel">
+            <figcaption class="panel-bar">
+                <span>neural-network.loop</span>
+                <span data-clock aria-hidden="true">--:--:--</span>
+            </figcaption>
+            <div class="visual">
+                <canvas data-neural-network aria-hidden="true"></canvas>
+            </div>
+        </figure>
+        <div class="panel terminal" aria-hidden="true">
+            <div><span class="accent">$</span> whoami</div>
+            <div class="out">{t.hero.whoami}</div>
+            <div class="cmd"><span class="accent">$</span> stack --top</div>
+            <div class="out">typescript · react · angular · node · nestjs · fastapi</div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { mountNeuralNetwork } from '../scripts/neural-network';
+
+    document.querySelectorAll<HTMLCanvasElement>('canvas[data-neural-network]').forEach(mountNeuralNetwork);
+</script>
+
+<style>
+    .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        gap: 44px;
+        align-items: center;
+        min-height: min(calc(100svh - var(--header-height) - 1px), 1000px);
+        padding-block: 40px;
+    }
+
+    .status {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 0 36px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+        text-transform: uppercase;
+    }
+
+    .sep {
+        color: #3a382f;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: clamp(46px, 8.4vw, 132px);
+        line-height: 0.86;
+        letter-spacing: -0.055em;
+        font-weight: 600;
+    }
+
+    .facts {
+        margin: 28px 0 0;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 18px;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--fg-soft);
+    }
+
+    dt {
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    dd {
+        margin: 0;
+    }
+
+    .accent {
+        color: var(--accent);
+    }
+
+    .ctas {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+        font-family: var(--mono);
+        font-size: 12px;
+    }
+
+    .cta {
+        padding: 13px 22px;
+        transition:
+            background 0.2s,
+            color 0.2s,
+            border-color 0.2s;
+    }
+
+    .primary {
+        background: var(--accent);
+        color: var(--bg);
+        font-weight: 500;
+    }
+
+    .primary:hover {
+        background: var(--fg);
+        color: var(--bg);
+    }
+
+    .secondary {
+        border: 1px solid var(--line-strong);
+        color: var(--fg-soft);
+    }
+
+    .secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .side {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .panel {
+        margin: 0;
+        border: 1px solid var(--line);
+        background: var(--surface);
+    }
+
+    .panel-bar {
+        display: flex;
+        justify-content: space-between;
+        padding: 9px 13px;
+        border-bottom: 1px solid var(--line);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        text-transform: uppercase;
+    }
+
+    .identity {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(12px, 2vw, 24px);
+    }
+
+    .identity :global(.avatar) {
+        flex: none;
+        width: clamp(52px, 6.5vw, 96px);
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 30%;
+        border: 1px solid var(--line-strong);
+        box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+
+    .visual {
+        padding: 13px;
+    }
+
+    canvas {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        max-height: 360px;
+        background: #04050b;
+    }
+
+    .terminal {
+        padding: 16px 13px;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        line-height: 1.9;
+        color: var(--faint);
+    }
+
+    .out {
+        color: var(--fg);
+    }
+
+    .cmd {
+        margin-top: 6px;
+    }
+</style>

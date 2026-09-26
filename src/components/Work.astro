@@ -1,0 +1,126 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { localizedPath, useTranslations, type Locale } from '../i18n';
+import { formatPeriod, pad } from '../lib/format';
+import { localizeProject, yearRange, type ProjectEntry } from '../lib/projects';
+
+interface Props {
+    lang: Locale;
+    projects: ProjectEntry[];
+}
+
+const { lang, projects } = Astro.props;
+const t = useTranslations(lang);
+const { from, to } = yearRange(projects);
+const items = projects.map((entry) => localizeProject(entry, lang));
+---
+
+<section id="work" class="container section" aria-labelledby="work-title">
+    <SectionLabel index={3} title={t.work.label} meta={t.work.meta(projects.length, from, to)} id="work-title" />
+    <ol class="list">
+        {items.map((project, i) => (
+            <li data-reveal>
+                <a href={localizedPath(lang, `project/${project.id}`)} class="row">
+                    <span class="title">
+                        <span class="index">{pad(i + 1)}</span>
+                        <h3 class="name">{project.name}</h3>
+                        <span class="meta">
+                            {formatPeriod(project.startDate, project.endDate, t.work.inProgress)} · {project.role}
+                        </span>
+                    </span>
+                    <ul class="tags" aria-label="Technologies">
+                        {project.technologies.map((tech) => (
+                            <li>{tech}</li>
+                        ))}
+                    </ul>
+                </a>
+            </li>
+        ))}
+    </ol>
+</section>
+
+<style>
+    .section {
+        padding-bottom: 100px;
+    }
+
+    .list {
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--line);
+    }
+
+    .list > li {
+        border-bottom: 1px solid var(--line-soft);
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 24px;
+        padding: 22px 4px;
+        transition: background 0.2s;
+    }
+
+    .row:hover {
+        background: var(--surface);
+        color: inherit;
+    }
+
+    .row:hover .name {
+        color: var(--accent);
+    }
+
+    .title {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 6px 14px;
+    }
+
+    .index {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--accent);
+    }
+
+    .name {
+        margin: 0;
+        font-size: clamp(19px, 2vw, 26px);
+        letter-spacing: -0.03em;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .meta {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: var(--faint);
+    }
+
+    .tags li {
+        padding: 4px 8px;
+        border: 1px solid #2b2a23;
+    }
+
+    @media (max-width: 720px) {
+        .row {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 14px;
+        }
+    }
+</style>

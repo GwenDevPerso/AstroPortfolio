@@ -1,0 +1,85 @@
+---
+import { Font } from 'astro:assets';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { defaultLocale, locales, localizedPath, ogLocales, useTranslations, type Locale } from '../i18n';
+import '../styles/global.css';
+
+interface Props {
+    lang: Locale;
+    /** Locale-independent path of the page, e.g. `''` or `project/3`. Used for canonical and hreflang links. */
+    path?: string;
+    title?: string;
+    description?: string;
+    /** Set to false for pages that exist in a single locale (e.g. 404). */
+    alternates?: boolean;
+}
+
+const { lang, path = '', title, description, alternates = true } = Astro.props;
+const t = useTranslations(lang);
+
+const pageTitle = title ?? t.meta.title;
+const pageDescription = description ?? t.meta.description;
+const absoluteUrl = (l: Locale) => new URL(localizedPath(l, path), Astro.site).href;
+const canonical = absoluteUrl(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script is:inline>
+            document.documentElement.classList.add('js');
+        </script>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="theme-color" content="#0e0e0c" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+
+        {alternates && <link rel="canonical" href={canonical} />}
+        {alternates && locales.map((l) => <link rel="alternate" hreflang={l} href={absoluteUrl(l)} />)}
+        {alternates && <link rel="alternate" hreflang="x-default" href={absoluteUrl(defaultLocale)} />}
+        {!alternates && <meta name="robots" content="noindex" />}
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:locale" content={ogLocales[lang]} />
+        {locales.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={ogLocales[l]} />)}
+
+        <Font cssVariable="--font-sans" preload />
+        <Font cssVariable="--font-mono" />
+    </head>
+    <body>
+        <div class="grid-overlay" aria-hidden="true"></div>
+        <SiteHeader lang={lang} path={path} />
+        <main id="main">
+            <slot />
+        </main>
+        <SiteFooter lang={lang} />
+    </body>
+</html>
+
+<script>
+    import '../scripts/interactions';
+</script>
+
+<style>
+    .grid-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: calc(100% / 12) 100%;
+    }
+
+    main {
+        position: relative;
+        z-index: 2;
+    }
+</style>

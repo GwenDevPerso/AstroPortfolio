@@ -1,0 +1,40 @@
+---
+import { useTranslations, type Locale } from '../i18n';
+
+interface Props {
+    lang: Locale;
+}
+
+const t = useTranslations(Astro.props.lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+    <div class="container bar">
+        <span>{t.footer.rights.replace('{year}', String(year))}</span>
+        <span aria-hidden="true"><span data-spinner>⠋</span>&nbsp; <span data-clock>--:--:--</span></span>
+        <span>GB.DEV / v0.02</span>
+    </div>
+</footer>
+
+<style>
+    .site-footer {
+        position: relative;
+        z-index: 2;
+        border-top: 1px solid var(--line);
+    }
+
+    .bar {
+        padding-block: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        text-transform: uppercase;
+    }
+</style>

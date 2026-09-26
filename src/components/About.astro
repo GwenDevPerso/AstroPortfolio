@@ -1,0 +1,110 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { useTranslations, type Locale } from '../i18n';
+
+interface Props {
+    lang: Locale;
+}
+
+const t = useTranslations(Astro.props.lang);
+const services = [t.services.frontend, t.services.backend, t.services.mobile];
+---
+
+<section id="about" class="paper" aria-labelledby="about-title">
+    <div class="container inner">
+        <div>
+            <SectionLabel index={1} title={t.about.label} id="about-title" />
+            <p class="heading" data-reveal>{t.about.heading}</p>
+        </div>
+        <div class="body" data-reveal>
+            {t.about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            <h3 class="visually-hidden">{t.services.label}</h3>
+            <div class="services">
+                {services.map((service) => (
+                    <div class="service">
+                        <h4>{service.title}</h4>
+                        <ul>
+                            {service.items.map((item) => (
+                                <li>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        gap: 56px;
+        padding-block: 100px;
+    }
+
+    .heading {
+        margin: 24px 0 0;
+        font-size: clamp(30px, 3.8vw, 52px);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        font-weight: 600;
+        text-wrap: balance;
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: clamp(15px, 1.25vw, 17px);
+        line-height: 1.6;
+        color: var(--ink-soft);
+    }
+
+    .body p {
+        margin: 0;
+    }
+
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 1px;
+        margin-top: 8px;
+        background: var(--paper-line);
+        border: 1px solid var(--paper-line);
+    }
+
+    .service {
+        background: var(--paper);
+        padding: 16px;
+    }
+
+    h4 {
+        margin: 0 0 10px;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        color: var(--ink-muted);
+        text-transform: uppercase;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--ink);
+    }
+
+    li + li {
+        margin-top: 4px;
+    }
+
+    @media (max-width: 720px) {
+        .services {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+</style>

@@ -1,0 +1,46 @@
+---
+import { pad } from '../lib/format';
+
+interface Props {
+    index: number;
+    title: string;
+    meta?: string;
+    /** Id of the heading, for `aria-labelledby` on the section. */
+    id?: string;
+}
+
+const { index, title, meta, id } = Astro.props;
+---
+
+<div class="section-label">
+    <h2 id={id}>{pad(index)} — {title}</h2>
+    {meta && <span class="meta">{meta}</span>}
+</div>
+
+<style>
+    .section-label {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    h2 {
+        margin: 0;
+        font-size: inherit;
+        font-weight: 400;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+
+    .meta {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    :global(.paper) .section-label {
+        color: var(--ink-muted);
+    }
+</style>

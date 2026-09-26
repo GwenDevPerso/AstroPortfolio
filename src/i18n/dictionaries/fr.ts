@@ -1,0 +1,148 @@
+// French is the source dictionary: its shape defines `Dictionary`,
+// and every other locale must provide the exact same keys.
+export const fr = {
+    meta: {
+        title: 'Gwenael Bihan — Développeur Fullstack Web & Mobile Freelance',
+        description:
+            "Développeur Full-Stack freelance avec 5 ans d'expérience. J'aide les startups à concevoir, développer et faire évoluer leurs produits numériques, en particulier dans le Sport et la MedTech.",
+    },
+    nav: {
+        label: 'Navigation principale',
+        about: 'à propos',
+        skills: 'compétences',
+        work: 'réalisations',
+        timeline: 'parcours',
+        contact: 'contact',
+    },
+    header: {
+        boot: (projects: number) => [
+            'chargement du portfolio…',
+            'stack : typescript / react / node',
+            `${projects} projets indexés`,
+            'sport · medtech',
+            'statut : disponible',
+        ],
+        languages: 'Langue',
+    },
+    hero: {
+        available: 'Disponible',
+        place: 'France · remote',
+        role: 'Rôle',
+        roleValue: 'Fullstack Web & Mobile',
+        mode: 'Mode',
+        modeValue: 'Freelance',
+        uptime: 'Expérience',
+        yearsUnit: 'ans',
+        shipped: 'Livrés',
+        projectsUnit: 'projets',
+        ctaContact: './contact →',
+        ctaWork: './réalisations',
+        portraitAlt: 'Portrait de Gwenael Bihan',
+        whoami: 'dev fullstack · 5 ans · sport & medtech',
+    },
+    marquee: 'MVP · SaaS · plateformes web · applications mobiles · APIs · cloud · architecture · déploiement · maintenance',
+    about: {
+        label: 'À propos',
+        heading: "J'aide les startups à concevoir, développer et faire évoluer leurs produits numériques.",
+        paragraphs: [
+            "Développeur Full-Stack avec 5 ans d'expérience, j'aide les startups à concevoir, développer et faire évoluer leurs produits numériques.",
+            "Spécialisé dans les secteurs Sport et MedTech, je prends en charge l'ensemble du cycle de développement : conception, architecture, développement, déploiement et maintenance.",
+            'MVP, SaaS, plateformes web, applications mobiles, APIs, cloud.',
+            'Ouvert à tous les secteurs où la technologie crée de la valeur.',
+        ],
+    },
+    services: {
+        label: 'Prestations',
+        frontend: {
+            title: 'Front-end',
+            items: [
+                "Conception d'interfaces utilisateur (UI)",
+                'Développement de composants réutilisables',
+                'Intégration de données',
+                'Interaction utilisateur',
+                'Optimisation des performances',
+                'Tests',
+                'Responsive design',
+                'Support multi-navigateurs',
+                'Maintenance et mises à jour',
+                'Collaboration',
+                'Documentation',
+            ],
+        },
+        backend: {
+            title: 'Back-end',
+            items: [
+                "Conception de l'architecture backend",
+                'Développement des API et des services web',
+                'Intégration avec les bases de données',
+                'Implémentation de la logique métier',
+                'Sécurité et gestion des autorisations',
+                "Gestion des sessions et de l'authentification",
+                'Support et maintenance backend',
+                'Mise en place des serveurs et déploiement',
+            ],
+        },
+        mobile: {
+            title: 'Mobile',
+            items: [
+                "Conception d'interfaces utilisateur (UI) mobiles",
+                "Développement d'écrans et de fonctionnalités mobiles",
+                "Intégration de services et d'API",
+                'Interaction utilisateur mobile',
+                'Optimisation des performances mobiles',
+                'Support multi-plateformes (iOS, Android, etc.)',
+            ],
+        },
+    },
+    skills: {
+        label: 'Compétences',
+        meta: (entries: number, domains: number) => `${entries} entrées · ${domains} domaines`,
+        groups: {
+            languages: 'langages',
+            frameworks: 'frameworks',
+            databases: 'bases de données',
+            devops: 'devops / cloud',
+        },
+    },
+    work: {
+        label: 'Réalisations',
+        meta: (count: number, from: number, to: number) => `${count} projets · ${from} — ${to}`,
+        inProgress: 'en cours',
+    },
+    timeline: {
+        label: 'Parcours',
+        meta: (years: number) => `${years} ans`,
+    },
+    contact: {
+        label: 'Contact',
+        headingLine1: 'Un projet ?',
+        headingLine2: 'Parlons-en.',
+        text: "N'hésitez pas à me contacter pour en discuter davantage !",
+        freelance: 'Freelance',
+        network: 'Réseau',
+        status: 'Statut',
+        available: 'Disponible',
+    },
+    project: {
+        back: '← retour aux réalisations',
+        role: 'Poste',
+        company: 'Entreprise',
+        period: 'Période',
+        location: 'Lieu',
+        technologies: 'Technologies',
+        description: 'Description',
+        visit: 'Voir le projet ↗',
+        previous: '← Précédent',
+        next: 'Suivant →',
+    },
+    footer: {
+        rights: '© {year} Gwenael Bihan',
+    },
+    notFound: {
+        title: 'Page introuvable',
+        text: "Cette page n'existe pas ou a été déplacée.",
+        home: "← retour à l'accueil",
+    },
+};
+
+export type Dictionary = typeof fr;

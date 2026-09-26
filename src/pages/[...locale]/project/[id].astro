@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, localeParam, localizedPath, useTranslations } from '../../../i18n';
+import { formatPeriod, pad } from '../../../lib/format';
+import { getProjects, localizeProject } from '../../../lib/projects';
+
+export async function getStaticPaths() {
+    const projects = await getProjects();
+    return locales.flatMap((lang) =>
+        projects.map((entry, index) => ({
+            params: { locale: localeParam(lang), id: entry.id },
+            props: {
+                lang,
+                index,
+                project: localizeProject(entry, lang),
+                previous: index > 0 ? localizeProject(projects[index - 1], lang) : undefined,
+                next: index < projects.length - 1 ? localizeProject(projects[index + 1], lang) : undefined,
+            },
+        })),
+    );
+}
+
+type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]['props'];
+
+const { lang, index, project, previous, next } = Astro.props;
+const t = useTranslations(lang);
+const period = formatPeriod(project.startDate, project.endDate, t.work.inProgress);
+const paragraphs = project.description
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+const workUrl = `${localizedPath(lang)}#work`;
+const projectUrl = (id: string) => localizedPath(lang, `project/${id}`);
+---
+
+<BaseLayout
+    lang={lang}
+    path={`project/${project.id}`}
+    title={`${project.name} — Gwenael Bihan`}
+    description={`${project.role} · ${project.company} · ${period}`}
+>
+    <article class="container project">
+        <a href={workUrl} class="back">{t.project.back}</a>
+
+        <header class="head">
+            <span class="index">{pad(index + 1)} — {t.work.label}</span>
+            <h1>{project.name}</h1>
+            <p class="period">{period} · {project.role}</p>
+        </header>
+
+        <dl class="facts">
+            <div>
+                <dt>{t.project.role}</dt>
+                <dd>{project.role}</dd>
+            </div>
+            <div>
+                <dt>{t.project.company}</dt>
+                <dd>{project.company}</dd>
+            </div>
+            <div>
+                <dt>{t.project.period}</dt>
+                <dd>{period}</dd>
+            </div>
+            <div>
+                <dt>{t.project.location}</dt>
+                <dd>{project.location}</dd>
+            </div>
+        </dl>
+
+        <div class="body">
+            <section aria-labelledby="tech-title">
+                <h2 id="tech-title" class="label">{t.project.technologies}</h2>
+                <ul class="tags">
+                    {project.technologies.map((tech) => (
+                        <li>{tech}</li>
+                    ))}
+                </ul>
+                {project.link && (
+                    <a href={project.link} class="visit" target="_blank" rel="noopener noreferrer">
+                        {t.project.visit}
+                    </a>
+                )}
+            </section>
+            <section aria-labelledby="description-title">
+                <h2 id="description-title" class="label">{t.project.description}</h2>
+                <div class="description">
+                    {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+            </section>
+        </div>
+
+        <nav class="pager" aria-label={t.work.label}>
+            {previous ? (
+                <a href={projectUrl(previous.id)} rel="prev">
+                    <span class="label">{t.project.previous}</span>
+                    <span class="pager-name">{previous.name}</span>
+                </a>
+            ) : (
+                <span />
+            )}
+            {next && (
+                <a href={projectUrl(next.id)} rel="next" class="next">
+                    <span class="label">{t.project.next}</span>
+                    <span class="pager-name">{next.name}</span>
+                </a>
+            )}
+        </nav>
+    </article>
+</BaseLayout>
+
+<style>
+    .project {
+        padding-block: 48px 100px;
+    }
+
+    .back {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+    }
+
+    .back:hover {
+        color: var(--accent);
+    }
+
+    .head {
+        margin-top: 56px;
+        padding-bottom: 36px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .index {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--accent);
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin: 20px 0 0;
+        font-size: clamp(40px, 7vw, 104px);
+        line-height: 0.92;
+        letter-spacing: -0.055em;
+        font-weight: 600;
+        text-wrap: balance;
+    }
+
+    .period {
+        margin: 20px 0 0;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+    }
+
+    .facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1px;
+        margin: 0;
+        background: var(--line);
+        border-bottom: 1px solid var(--line);
+    }
+
+    .facts > div {
+        background: var(--bg);
+        padding: 22px 20px 22px 0;
+    }
+
+    dt,
+    .label {
+        display: block;
+        margin: 0 0 10px;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+        text-transform: uppercase;
+    }
+
+    dd {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .body {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 56px;
+        padding-block: 48px;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--fg-soft);
+    }
+
+    .tags li {
+        padding: 5px 10px;
+        background: var(--chip);
+    }
+
+    .visit {
+        display: inline-block;
+        margin-top: 28px;
+        padding: 13px 22px;
+        background: var(--accent);
+        color: var(--bg);
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .visit:hover {
+        background: var(--fg);
+        color: var(--bg);
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        max-width: 68ch;
+        font-size: clamp(15px, 1.25vw, 17px);
+        line-height: 1.65;
+        color: var(--fg-soft);
+    }
+
+    .description p {
+        margin: 0;
+    }
+
+    .pager {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+    }
+
+    .pager > * {
+        display: block;
+        background: var(--surface);
+        padding: 22px 20px;
+    }
+
+    .pager a {
+        transition: background 0.2s;
+    }
+
+    .pager a:hover {
+        background: var(--surface-hover);
+        color: var(--accent);
+    }
+
+    .next {
+        text-align: right;
+    }
+
+    .pager-name {
+        font-size: clamp(17px, 1.8vw, 22px);
+        letter-spacing: -0.02em;
+        font-weight: 500;
+    }
+
+    @media (max-width: 720px) {
+        .body {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 36px;
+        }
+
+        .pager {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .next {
+            text-align: left;
+        }
+    }
+</style>

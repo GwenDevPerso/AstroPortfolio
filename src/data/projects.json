@@ -1,344 +1,444 @@
-{
-    "fr": [
-        {
-            "id": 0,
-            "name": "Smartbiotic",
-            "img": "",
-            "label": "Développeur Fullstack Freelance",
-            "company": "Smartbiotic",
-            "startingDate": "2026-03-01",
-            "endingDate": "2026-06-01",
-            "location": "Montreal",
-            "technologies": ["React", "FastAPI", "Postgres", "Docker", "Git", "Github", "Github Actions", "Gitlab", "Java", "Plotly", "Redux", "SSO"],
-            "link": "https://www.smartbiotic.ai/",
-            "description": "Development du front-end et du back-end, avec des tests unitaires et end-to-end (E2E) pour garantir la fiabilité et la qualité. \n\nCréation de graphiques avec la librairie Plotly \n\nInstallation du serveur, configuration du réseau, implémentation d'un système de Single Sign-On (SSO), GitHub Actions CI. \n\nRefactorisation de l'application front-end, amélioration de l'architecture suivant les meilleures pratiques, setup d'un store Redux"
+[
+    {
+        "id": "0",
+        "order": 0,
+        "startDate": "2026-03-01",
+        "endDate": "2026-06-01",
+        "location": "Montreal",
+        "technologies": [
+            "React",
+            "FastAPI",
+            "Postgres",
+            "Docker",
+            "Git",
+            "Github",
+            "Github Actions",
+            "Gitlab",
+            "Java",
+            "Plotly",
+            "Redux",
+            "SSO"
+        ],
+        "link": "https://www.smartbiotic.ai/",
+        "name": {
+            "fr": "Smartbiotic",
+            "en": "Smartbiotic",
+            "es": "Smartbiotic"
         },
-        {
-            "id": 1,
-            "name": "My jam",
-            "img": "",
-            "label": "Développeur Fullstack",
-            "company": "Projet personnel",
-            "startingDate": "2025-06-30",
-            "endingDate": "In progress",
-            "location": "Bordeaux",
-            "technologies": ["React Native", "Supabase"],
-            "link": "",
-            "description": "Je suis en train de développer une appli mobile pour partager mes jams avec mes amis. J'ai utilisé React Native et Supabase pour mettre tout cela en oeuvre. L'utilisateur peut créer un compte, se connecter, ajouter des jams en renseignant son theme, le lieu, la date et la durée. Il peut également voir les jams des autres utilisateurs sur une map, s'inscrire à une jam, et voir les détails d'une jam. Chaque utilisateur à ses infos dans son profil, l'historique de ses jams participées, créées et rejointes."
+        "role": {
+            "fr": "Développeur Fullstack Freelance",
+            "en": "Fullstack Developer Freelance",
+            "es": "Desarrollador Fullstack Freelance"
         },
-        {
-            "id": 2,
-            "name": "Agent IA Web 3",
-            "img": "",
-            "label": "Développeur Fullstack",
-            "company": "Projet personnel",
-            "startingDate": "2025-03-01",
-            "endingDate": "2025-06-30",
-            "location": "Bordeaux",
-            "technologies": ["Nextjs", "Nodejs", "OpenAI Playground", "Web3"],
-            "link": "",
-            "description": "J'ai créé un agent IA qui permet de réaliser des tâches sur le web 3. J'ai utilisé Nextjs pour le frontend, Nodejs pour le backend, OpenAI Playground pour l'IA et Web3 pour les transactions. J'ai également utilisé des librairies comme ethers.js pour les transactions et web3.js pour les interactions avec la blockchain. J'ai également utilisé des librairies comme ethers.js pour les transactions et web3.js pour les interactions avec la blockchain."
+        "company": {
+            "fr": "Smartbiotic",
+            "en": "Smartbiotic",
+            "es": "Smartbiotic"
         },
-        {
-            "id": 3,
-            "name": "Suite PIANO Analytics",
-            "img": "",
-            "label": "Développeur Fullstack",
-            "company": "AT internet PIANO",
-            "startingDate": "2024-01-01",
-            "endingDate": "2025-09-30",
-            "location": "Bordeaux",
-            "technologies": ["Angular", "NGRX", "Nestjs", "MongoDB", "GraphQl", "Jenkins"],
-            "link": "https://www.piano.io/product/analytics",
-            "description": "Au sein d'une équipe de développement agile, j'ai activement contribué au développement des applications frontend et backend de la suite PIANO Analytics, une plateforme d'analyse de données destinée à fournir des insights puissants pour la prise de décision stratégique. J'ai participé à la mise en œuvre de fonctionnalités clés, en veillant à la qualité du code grâce à l'écriture systématique de tests unitaires et à l'adoption de bonnes pratiques de développement. Dans un souci de performance et de fiabilité, j'ai également mis en place et maintenu des pipelines d'intégration continue (CI), permettant l'automatisation des tests et le déploiement fluide des mises à jour. Ce travail m'a permis d'acquérir une solide expérience en développement fullstack, tout en évoluant dans un environnement orienté produit, performance et data."
-        },
-        {
-            "id": 4,
-            "name": "Dashboard A-gO",
-            "img": "",
-            "label": "Développeur Fullstack Freelance",
-            "company": "A-gO",
-            "startingDate": "2023-07-01",
-            "endingDate": "2023-09-28",
-            "location": "Rennes",
-            "technologies": ["Angular", "Ionic", "Nodejs", "MySql"],
-            "link": "https://www.linkedin.com/company/a-go-motion/?originalSubdomain=fr",
-            "description": "Dans le cadre d'un contrat freelance, j'ai développé une application web pour l'entreprise a-gO. L'application permet de visualiser différentes données, envoyées sous forme de format videos, ensuite analysées par une IA, et enfin affichées sous forme de graphiques. L'application permet également de créer, modifier, supprimer et visualiser des utilisateurs. Tout cela après une authentification. J'ai également mis en place l'infrastructure du projet sur aws"
-        },
-        {
-            "id": 5,
-            "name": "Application Smartlife Coaching",
-            "img": "",
-            "label": "Alternance développeur Fullstack",
-            "company": "Smartlife Coaching",
-            "startingDate": "2022-09-05",
-            "endingDate": "2023-07-28",
-            "location": "Rennes",
-            "technologies": ["Angular", "Ionic", "Nodejs", "MySql"],
-            "link": "https://smartlife-coaching.com/",
-            "description": "Avec deux autres développeurs, nous avons créés l'application Smartlife qui va améliorer le service proposé par l'entreprise. L'application comporte différentes propositions de ressources (podcasts, vidéos, articles), des programmes sportifs et nutritionnels a suivre par les clients, des calculs nutritionnels pour la création des recettes par les clients ainsi que des statistiques et un chat. Nous avons également mis un backoffice à la disposition des coachs pour la creations de tout le contenu disponibles ensuite pour les clients."
-        },
-        {
-            "id": 6,
-            "name": "Dorval",
-            "img": "",
-            "label": "Alternance développeur Fullstack",
-            "company": "Digital4Better",
-            "startingDate": "2022-07-04",
-            "endingDate": "2022-09-06",
-            "location": "Rennes",
-            "technologies": ["Javascript", "Strapi"],
-            "link": "https://www.dorval-am.com/",
-            "description": "Cette application avait pour but une refonte de leur site internet, j'ai donc participé à la migration de donnée de ce projet. Nous avons tout d'abord récupéré des fichiers venant d'une base de données utilisée par Drupal, il fallait ensuite parser les données, les traiter pour récupérer celles qui étaient importantes et les reformater pour les intégrer dans des composants Strapi crées en amont. Tout cela en js."
-        },
-        {
-            "id": 7,
-            "name": "Site Fruggr.io",
-            "img": "",
-            "label": "Alternance développeur Fullstack",
-            "company": "Digital4Better",
-            "startingDate": "2022-04-04",
-            "endingDate": "2022-07-04",
-            "location": "Rennes",
-            "technologies": ["React", "Redux", "TypeScript", "Forestry"],
-            "link": "https://www.fruggr.io/fr/",
-            "description": "J'ai réalisé la refonte du site web avec une équipe composée d'un designer et d'une chargée de communication. Notre objectif principal était double. D'une part, nous voulions booster les performances du site pour fournir une expérience utilisateur encore meilleure, plus fluide et plus rapide. D'autre part, on a cherché à intégrer les meilleures pratiques SEO pour améliorer la visibilité du site sur les moteurs de recherche. C'était une collaboration enrichissante et pleine de défis où nous avons combiné nos compétences et notre expertise pour créer un site optimisé et esthétiquement attrayant. Nous avons mis un point d'honneur à garantir que le site non seulement fonctionne efficacement, mais aussi qu'il soit bien référencé pour attirer plus de trafic et améliorer sa visibilité en ligne. Au final, cette refonte nous a permis de présenter un site de qualité supérieure, optimisé pour les moteurs de recherche et centré sur l'utilisateur..."
-        },
-        {
-            "id": 8,
-            "name": "CASDEN",
-            "img": "",
-            "label": "Alternance développeur Fullstack",
-            "company": "Digital4Better",
-            "startingDate": "2021-09-06",
-            "endingDate": "2022-03-14",
-            "location": "Rennes",
-            "technologies": ["Vue", "TS", "Node", "TypeOrm", "GraphQl"],
-            "link": "https://www.casden.fr/",
-            "description": "Pour ce projet, j'ai intégré une équipe de développeur, le but du projet était de réaliser un dashboard pour faciliter le suivi des actions de terrains entre la CASDEN et la banque populaire. Le projet utilisait du Vue js / Typescript pour le front et nodejs / Typeorm / graphql pour le back. J'ai pu développer des fonctionnalités de filtres, différents formulaires avec l'intégration du design que cela impliquait. J'ai également implémenté les relations avec la base de donnée que cela impliquait, fait des scripts de migrations pour adapter la base de donnée..."
-        },
-        {
-            "id": 9,
-            "name": "DrumVr",
-            "img": "",
-            "label": "Projet école",
-            "company": "Epitech",
-            "startingDate": "2021-09-06",
-            "endingDate": "2022-08-31",
-            "location": "Rennes",
-            "technologies": ["Unity", "C#"],
-            "link": "",
-            "description": "J'ai participé à la réalisation d'un projet Unity en réalité virtuelle, le but du projet était de faire une sorte de guitare hero pour la batterie. J'ai donc pu modéliser un environnement de studio pour le joueur ainsi qu'une interface de menu avec différentes fonctionnalités. Le jeu à ensuite été testé sur un oculus."
-        },
-        {
-            "id": 10,
-            "name": "MyPatientCare",
-            "img": "",
-            "label": "Alternance développeur Fullstack",
-            "company": "Hoppen",
-            "startingDate": "2020-03-16",
-            "endingDate": "2020-08-31",
-            "location": "Rennes",
-            "technologies": ["React", "Redux", "Nodejs", "MySql"],
-            "link": "https://www.hoppen.care/nos-solutions/",
-            "description": "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de suivi de patients dans les hôpitaux. J'ai pu développer différentes fontionnalités front et back pour ce projet."
-        },
-        {
-            "id": 11,
-            "name": "MyHoppenVision",
-            "img": "",
-            "label": "Alternance développeur Fullstack",
-            "company": "Hoppen",
-            "startingDate": "2020-02-03",
-            "endingDate": "2020-08-31",
-            "location": "Rennes",
-            "technologies": ["React", "Redux", "Nodejs", "MySql"],
-            "link": "https://www.hoppen.care/nos-solutions/",
-            "description": "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de visioconférence disponible pour les EHPAD pour rompre l'isolement et maintenir le lien entre les patients, les résidents, leurs familles et leurs proches. J'ai pu développer différentes fontionnalités front et back pour ce projet."
-        },
-        {
-            "id": 12,
-            "name": "CATS",
-            "img": "",
-            "label": "Stage développeur Java",
-            "company": "Crédit Agricole Technologie & Services",
-            "startingDate": "2018-08-01",
-            "endingDate": "2018-12-21",
-            "location": "Vannes",
-            "technologies": ["Java", "Spring", "MySql"],
-            "link": "",
-            "description": "Lors de mon stage au sein du Crédit Agricole, j'ai eu l'opportunité de travailler sur un projet visant à développer une application pour le système d'information (SI) de la banque, afin d'assurer un suivi efficace des anomalies sur les cartes de crédit qui utilisent l'application Xpay. L'objectif principal de ce projet est d'améliorer la qualité du service client et de minimiser les risques liés aux transactions frauduleuses."
+        "description": {
+            "fr": "Development du front-end et du back-end, avec des tests unitaires et end-to-end (E2E) pour garantir la fiabilité et la qualité. \n\nCréation de graphiques avec la librairie Plotly \n\nInstallation du serveur, configuration du réseau, implémentation d'un système de Single Sign-On (SSO), GitHub Actions CI. \n\nRefactorisation de l'application front-end, amélioration de l'architecture suivant les meilleures pratiques, setup d'un store Redux",
+            "en": "Development of both front-end and back-end features, with systematic unit and end-to-end (E2E) testing to ensure reliability and quality. \n\nGraph creation with Plotly library \n\nServer installation, network configuration, implementation of a Single Sign-On (SSO) system, GitHub Actions CI. \n\nFront-end application refactoring, architecture improvements following best practices, setup of a Redux store",
+            "es": "Desarrollo del front-end y del back-end, con pruebas unitarias y end-to-end (E2E) para garantizar la fiabilidad y la calidad.\n\nCreación de gráficos con la librería Plotly.\n\nInstalación del servidor, configuración de la red, implementación de un sistema de Single Sign-On (SSO), CI con GitHub Actions.\n\nRefactorización de la aplicación front-end, mejora de la arquitectura siguiendo las buenas prácticas, configuración de un store Redux."
         }
-    ],
-    "en": [
-        {
-            "id": 0,
-            "name": "Smartbiotic",
-            "img": "",
-            "label": "Fullstack Developer Freelance",
-            "company": "Smartbiotic",
-            "startingDate": "2026-03-01",
-            "endingDate": "2026-06-01",
-            "location": "Montreal",
-            "technologies": ["React", "FastAPI", "Postgres", "Docker", "Git", "Github", "Github Actions", "Gitlab", "Java", "Plotly", "Redux", "SSO"],
-            "link": "https://www.smartbiotic.ai/",
-            "description": "Development of both front-end and back-end features, with systematic unit and end-to-end (E2E) testing to ensure reliability and quality. \n\nGraph creation with Plotly library \n\nServer installation, network configuration, implementation of a Single Sign-On (SSO) system, GitHub Actions CI. \n\nFront-end application refactoring, architecture improvements following best practices, setup of a Redux store"
+    },
+    {
+        "id": "1",
+        "order": 1,
+        "startDate": "2025-06-30",
+        "endDate": null,
+        "location": "Bordeaux",
+        "technologies": [
+            "React Native",
+            "Supabase"
+        ],
+        "name": {
+            "fr": "My jam",
+            "en": "My jam",
+            "es": "My jam"
         },
-        {
-            "id": 1,
-            "name": "My jam",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Personal Project",
-            "startingDate": "2025-06-30",
-            "endingDate": "In progress",
-            "location": "Bordeaux",
-            "technologies": ["React Native", "Supabase"],
-            "link": "",
-            "description": "I'm developing a mobile app to share my music jams with my friends. I used React Native and Supabase to make it happen. The user can create an account, log in, add jams by filling in the theme, location, date and duration. He can also see the jams of other users on a map, register for a jam, and see the details of a jam. Each user has their own information in their profile, the history of the jams they have participated in, created and joined."
+        "role": {
+            "fr": "Développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack"
         },
-        {
-            "id": 2,
-            "name": "Agent IA Web 3",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Personal Project",
-            "startingDate": "2025-03-01",
-            "endingDate": "2025-06-30",
-            "location": "Bordeaux",
-            "technologies": ["Nextjs", "Nodejs", "OpenAI Playground", "Web3"],
-            "link": "",
-            "description": "I created an AI agent that allows me to perform tasks on the web 3. I used Nextjs for the frontend, Nodejs for the backend, OpenAI Playground for the AI and Web3 for the transactions. I also used libraries like ethers.js for the transactions and web3.js for the interactions with the blockchain. I also used libraries like ethers.js for the transactions and web3.js for the interactions with the blockchain."
+        "company": {
+            "fr": "Projet personnel",
+            "en": "Personal Project",
+            "es": "Proyecto personal"
         },
-        {
-            "id": 3,
-            "name": "Suite PIANO Analytics",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "AT internet PIANO",
-            "startingDate": "2024-01-01",
-            "endingDate": "2025-09-30",
-            "location": "Bordeaux",
-            "technologies": ["Angular", "NGRX", "Nestjs", "MongoDB", "GraphQl", "Jenkins"],
-            "link": "https://www.piano.io/product/analytics",
-            "description": "I worked in an agile development team to develop the frontend and backend of the PIANO Analytics platform, a data analysis platform designed to provide powerful insights for strategic decision-making. I participated in the implementation of key features, ensuring code quality through systematic unit testing and adherence to best development practices. In order to improve performance and reliability, I also set up and maintained CI pipelines, automating tests and enabling smooth deployment of updates. This experience gave me a solid understanding of fullstack development, while working in a product-focused environment that prioritizes performance and data."
-        },
-        {
-            "id": 4,
-            "name": "Dashboard A-gO",
-            "img": "",
-            "label": "Fullstack Developer Freelance",
-            "company": "A-gO",
-            "startingDate": "2023-07-01",
-            "endingDate": "2023-09-28",
-            "location": "Rennes",
-            "technologies": ["Angular", "Ionic", "Nodejs", "MySql"],
-            "link": "https://www.linkedin.com/company/a-go-motion/?originalSubdomain=fr",
-            "description": "I developed a web application for the A-gO company as part of a freelance contract. The application allows you to view different data, sent in video format, then analyzed by an AI, and finally displayed in the form of graphs. The application also allows you to create, modify, delete and view users. All this after authentication. I also set up the infrastructure of the project on aws"
-        },
-        {
-            "id": 5,
-            "name": "Application Smartlife Coaching",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Smartlife Coaching",
-            "startingDate": "2022-09-05",
-            "endingDate": "2023-07-28",
-            "location": "Rennes",
-            "technologies": ["Angular", "Ionic", "Nodejs", "MySql"],
-            "link": "https://smartlife-coaching.com/",
-            "description": "I worked with two other developers to create the Smartlife application, which aims to improve the service offered by the company. The application has different proposals for resources (podcasts, videos, articles), sports and nutrition programs to follow by the clients, nutrition calculations for the creation of recipes by the clients as well as statistics and a chat. We also put a backoffice at the disposal of the coaches for the creation of all the content available afterwards for the clients."
-        },
-        {
-            "id": 6,
-            "name": "Dorval",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Digital4Better",
-            "startingDate": "2022-07-04",
-            "endingDate": "2022-09-06",
-            "location": "Rennes",
-            "technologies": ["Javascript", "Strapi"],
-            "link": "https://www.dorval-am.com/",
-            "description": "This application aimed to redesign the company's website, so I participated in the migration of data from a Drupal database. We first retrieved files from a database used by Drupal, then we parsed the data, processed it to retrieve the important data, and reformatted it to integrate it into Strapi components created in advance. All this in js."
-        },
-        {
-            "id": 7,
-            "name": "Site Fruggr.io",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Digital4Better",
-            "startingDate": "2022-04-04",
-            "endingDate": "2022-07-04",
-            "location": "Rennes",
-            "technologies": ["React", "TypeScript", "Forestry"],
-            "link": "https://www.fruggr.io/fr/",
-            "description": "I redesigned the website with a team composed of a designer and a communication manager. Our main goal was twofold. First, we wanted to boost the site's performance to provide an even better user experience, faster and more fluid. Second, we wanted to integrate the best SEO practices to improve the site's visibility on search engines. It was an enriching collaboration where we combined our skills and expertise to create an optimized and aesthetically pleasing site. We put a lot of effort into ensuring that the site not only works efficiently but is also well-ranked for attracting more traffic and improving its visibility online. In the end, this redesign allowed us to present a superior quality site, optimized for search engines and focused on the user..."
-        },
-        {
-            "id": 8,
-            "name": "CASDEN",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Digital4Better",
-            "startingDate": "2021-09-06",
-            "endingDate": "2022-03-14",
-            "location": "Rennes",
-            "technologies": ["Vue", "TS", "Node", "TypeOrm", "GraphQl"],
-            "link": "https://www.casden.fr/",
-            "description": "For this project, I joined a development team, the goal of the project was to create a dashboard to facilitate the tracking of field actions between the CASDEN and the bank of France. The project used Vue js / Typescript for the front and nodejs / Typeorm / graphql for the back. I was able to develop different filters, different forms with the integration of the design that this implied. I also implemented the relationships with the database that this implied, made migration scripts to adapt the database..."
-        },
-        {
-            "id": 9,
-            "name": "DrumVr",
-            "img": "",
-            "label": "School Project",
-            "company": "Epitech",
-            "startingDate": "2021-09-06",
-            "endingDate": "2022-08-31",
-            "location": "Rennes",
-            "technologies": ["Unity", "C#"],
-            "link": "",
-            "description": "I participated in the realization of a Unity project in virtual reality, the goal of the project was to make a kind of guitar hero for the drums. I therefore modeled a studio environment for the player as well as a menu interface with different functionalities. The game was then tested on an oculus."
-        },
-        {
-            "id": 10,
-            "name": "MyPatientCare",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Hoppen",
-            "startingDate": "2020-03-16",
-            "endingDate": "2020-08-31",
-            "location": "Rennes",
-            "technologies": ["React", "Redux", "Nodejs", "MySql"],
-            "link": "https://www.hoppen.care/nos-solutions/",
-            "description": "During my first internship, I joined a development team at Hoppen. For this project, I participated in the development of a patient tracking application in hospitals. I was able to develop different front and back features for this project."
-        },
-        {
-            "id": 11,
-            "name": "MyHoppenVision",
-            "img": "",
-            "label": "Fullstack Developer",
-            "company": "Hoppen",
-            "startingDate": "2020-02-03",
-            "endingDate": "2020-08-31",
-            "location": "Rennes",
-            "technologies": ["React", "Redux", "Nodejs", "MySql"],
-            "link": "https://www.hoppen.care/nos-solutions/",
-            "description": "During my first internship, I joined a development team at Hoppen. For this project, I participated in the development of a video conferencing application for EHPADs to break isolation and maintain links between patients, residents, their families and their relatives. I was able to develop different front and back features for this project."
-        },
-        {
-            "id": 12,
-            "name": "CATS",
-            "img": "",
-            "label": "Internship Fullstack Developer",
-            "company": "Crédit Agricole Technologie & Services",
-            "startingDate": "2018-08-01",
-            "endingDate": "2018-12-21",
-            "location": "Vannes",
-            "technologies": ["Java", "Spring", "MySql"],
-            "link": "",
-            "description": "During my internship at the Crédit Agricole, I had the opportunity to work on a project aimed at developing an application for the bank's information system (SI) to improve the tracking of anomalies on credit cards using the Xpay application. The main objective of this project is to improve the quality of customer service and minimize the risks associated with fraudulent transactions."
+        "description": {
+            "fr": "Je suis en train de développer une appli mobile pour partager mes jams avec mes amis. J'ai utilisé React Native et Supabase pour mettre tout cela en oeuvre. L'utilisateur peut créer un compte, se connecter, ajouter des jams en renseignant son theme, le lieu, la date et la durée. Il peut également voir les jams des autres utilisateurs sur une map, s'inscrire à une jam, et voir les détails d'une jam. Chaque utilisateur à ses infos dans son profil, l'historique de ses jams participées, créées et rejointes.",
+            "en": "I'm developing a mobile app to share my music jams with my friends. I used React Native and Supabase to make it happen. The user can create an account, log in, add jams by filling in the theme, location, date and duration. He can also see the jams of other users on a map, register for a jam, and see the details of a jam. Each user has their own information in their profile, the history of the jams they have participated in, created and joined.",
+            "es": "Estoy desarrollando una aplicación móvil para compartir mis jams con mis amigos. Utilicé React Native y Supabase para llevarlo a cabo. El usuario puede crear una cuenta, iniciar sesión y añadir jams indicando la temática, el lugar, la fecha y la duración. También puede ver las jams de otros usuarios en un mapa, inscribirse en una jam y consultar sus detalles. Cada usuario tiene su información en su perfil, junto con el historial de las jams en las que ha participado, que ha creado y a las que se ha unido."
         }
-    ]
-}
+    },
+    {
+        "id": "2",
+        "order": 2,
+        "startDate": "2025-03-01",
+        "endDate": "2025-06-30",
+        "location": "Bordeaux",
+        "technologies": [
+            "Nextjs",
+            "Nodejs",
+            "OpenAI Playground",
+            "Web3"
+        ],
+        "name": {
+            "fr": "Agent IA Web 3",
+            "en": "Web3 AI Agent",
+            "es": "Agente IA Web3"
+        },
+        "role": {
+            "fr": "Développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack"
+        },
+        "company": {
+            "fr": "Projet personnel",
+            "en": "Personal Project",
+            "es": "Proyecto personal"
+        },
+        "description": {
+            "fr": "J'ai créé un agent IA qui permet de réaliser des tâches sur le web 3. J'ai utilisé Nextjs pour le frontend, Nodejs pour le backend, OpenAI Playground pour l'IA et Web3 pour les transactions. J'ai également utilisé des librairies comme ethers.js pour les transactions et web3.js pour les interactions avec la blockchain. J'ai également utilisé des librairies comme ethers.js pour les transactions et web3.js pour les interactions avec la blockchain.",
+            "en": "I created an AI agent that allows me to perform tasks on the web 3. I used Nextjs for the frontend, Nodejs for the backend, OpenAI Playground for the AI and Web3 for the transactions. I also used libraries like ethers.js for the transactions and web3.js for the interactions with the blockchain. I also used libraries like ethers.js for the transactions and web3.js for the interactions with the blockchain.",
+            "es": "Creé un agente de IA que permite realizar tareas en la web3. Utilicé Next.js para el frontend, Node.js para el backend, OpenAI Playground para la IA y Web3 para las transacciones. También utilicé librerías como ethers.js para las transacciones y web3.js para las interacciones con la blockchain."
+        }
+    },
+    {
+        "id": "3",
+        "order": 3,
+        "startDate": "2024-01-01",
+        "endDate": "2025-09-30",
+        "location": "Bordeaux",
+        "technologies": [
+            "Angular",
+            "NGRX",
+            "Nestjs",
+            "MongoDB",
+            "GraphQl",
+            "Jenkins"
+        ],
+        "link": "https://www.piano.io/product/analytics",
+        "name": {
+            "fr": "Suite PIANO Analytics",
+            "en": "PIANO Analytics Suite",
+            "es": "Suite PIANO Analytics"
+        },
+        "role": {
+            "fr": "Développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack"
+        },
+        "company": {
+            "fr": "AT internet PIANO",
+            "en": "AT internet PIANO",
+            "es": "AT internet PIANO"
+        },
+        "description": {
+            "fr": "Au sein d'une équipe de développement agile, j'ai activement contribué au développement des applications frontend et backend de la suite PIANO Analytics, une plateforme d'analyse de données destinée à fournir des insights puissants pour la prise de décision stratégique. J'ai participé à la mise en œuvre de fonctionnalités clés, en veillant à la qualité du code grâce à l'écriture systématique de tests unitaires et à l'adoption de bonnes pratiques de développement. Dans un souci de performance et de fiabilité, j'ai également mis en place et maintenu des pipelines d'intégration continue (CI), permettant l'automatisation des tests et le déploiement fluide des mises à jour. Ce travail m'a permis d'acquérir une solide expérience en développement fullstack, tout en évoluant dans un environnement orienté produit, performance et data.",
+            "en": "I worked in an agile development team to develop the frontend and backend of the PIANO Analytics platform, a data analysis platform designed to provide powerful insights for strategic decision-making. I participated in the implementation of key features, ensuring code quality through systematic unit testing and adherence to best development practices. In order to improve performance and reliability, I also set up and maintained CI pipelines, automating tests and enabling smooth deployment of updates. This experience gave me a solid understanding of fullstack development, while working in a product-focused environment that prioritizes performance and data.",
+            "es": "Dentro de un equipo de desarrollo ágil, contribuí activamente al desarrollo de las aplicaciones frontend y backend de la suite PIANO Analytics, una plataforma de análisis de datos destinada a ofrecer información valiosa para la toma de decisiones estratégicas. Participé en la implementación de funcionalidades clave, garantizando la calidad del código mediante la escritura sistemática de pruebas unitarias y la adopción de buenas prácticas de desarrollo. Con el objetivo de mejorar el rendimiento y la fiabilidad, también configuré y mantuve pipelines de integración continua (CI), automatizando las pruebas y permitiendo un despliegue fluido de las actualizaciones. Este trabajo me permitió adquirir una sólida experiencia en desarrollo fullstack, en un entorno orientado al producto, al rendimiento y a los datos."
+        }
+    },
+    {
+        "id": "4",
+        "order": 4,
+        "startDate": "2023-07-01",
+        "endDate": "2023-09-28",
+        "location": "Rennes",
+        "technologies": [
+            "Angular",
+            "Ionic",
+            "Nodejs",
+            "MySql"
+        ],
+        "link": "https://www.linkedin.com/company/a-go-motion/?originalSubdomain=fr",
+        "name": {
+            "fr": "Dashboard A-gO",
+            "en": "A-gO Dashboard",
+            "es": "Dashboard A-gO"
+        },
+        "role": {
+            "fr": "Développeur Fullstack Freelance",
+            "en": "Fullstack Developer Freelance",
+            "es": "Desarrollador Fullstack Freelance"
+        },
+        "company": {
+            "fr": "A-gO",
+            "en": "A-gO",
+            "es": "A-gO"
+        },
+        "description": {
+            "fr": "Dans le cadre d'un contrat freelance, j'ai développé une application web pour l'entreprise a-gO. L'application permet de visualiser différentes données, envoyées sous forme de format videos, ensuite analysées par une IA, et enfin affichées sous forme de graphiques. L'application permet également de créer, modifier, supprimer et visualiser des utilisateurs. Tout cela après une authentification. J'ai également mis en place l'infrastructure du projet sur aws",
+            "en": "I developed a web application for the A-gO company as part of a freelance contract. The application allows you to view different data, sent in video format, then analyzed by an AI, and finally displayed in the form of graphs. The application also allows you to create, modify, delete and view users. All this after authentication. I also set up the infrastructure of the project on aws",
+            "es": "En el marco de un contrato freelance, desarrollé una aplicación web para la empresa A-gO. La aplicación permite visualizar distintos datos, enviados en formato de vídeo, analizados después por una IA y finalmente mostrados en forma de gráficos. La aplicación también permite crear, modificar, eliminar y consultar usuarios, todo ello tras una autenticación. También configuré la infraestructura del proyecto en AWS."
+        }
+    },
+    {
+        "id": "5",
+        "order": 5,
+        "startDate": "2022-09-05",
+        "endDate": "2023-07-28",
+        "location": "Rennes",
+        "technologies": [
+            "Angular",
+            "Ionic",
+            "Nodejs",
+            "MySql"
+        ],
+        "link": "https://smartlife-coaching.com/",
+        "name": {
+            "fr": "Application Smartlife Coaching",
+            "en": "Smartlife Coaching App",
+            "es": "Aplicación Smartlife Coaching"
+        },
+        "role": {
+            "fr": "Alternance développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack en alternancia"
+        },
+        "company": {
+            "fr": "Smartlife Coaching",
+            "en": "Smartlife Coaching",
+            "es": "Smartlife Coaching"
+        },
+        "description": {
+            "fr": "Avec deux autres développeurs, nous avons créés l'application Smartlife qui va améliorer le service proposé par l'entreprise. L'application comporte différentes propositions de ressources (podcasts, vidéos, articles), des programmes sportifs et nutritionnels a suivre par les clients, des calculs nutritionnels pour la création des recettes par les clients ainsi que des statistiques et un chat. Nous avons également mis un backoffice à la disposition des coachs pour la creations de tout le contenu disponibles ensuite pour les clients.",
+            "en": "I worked with two other developers to create the Smartlife application, which aims to improve the service offered by the company. The application has different proposals for resources (podcasts, videos, articles), sports and nutrition programs to follow by the clients, nutrition calculations for the creation of recipes by the clients as well as statistics and a chat. We also put a backoffice at the disposal of the coaches for the creation of all the content available afterwards for the clients.",
+            "es": "Junto con otros dos desarrolladores, creamos la aplicación Smartlife, que mejora el servicio que ofrece la empresa. La aplicación incluye distintos recursos (podcasts, vídeos, artículos), programas deportivos y nutricionales que los clientes pueden seguir, cálculos nutricionales para que los clientes creen sus recetas, así como estadísticas y un chat. También pusimos a disposición de los coaches un backoffice para crear todo el contenido que después está disponible para los clientes."
+        }
+    },
+    {
+        "id": "6",
+        "order": 6,
+        "startDate": "2022-07-04",
+        "endDate": "2022-09-06",
+        "location": "Rennes",
+        "technologies": [
+            "Javascript",
+            "Strapi"
+        ],
+        "link": "https://www.dorval-am.com/",
+        "name": {
+            "fr": "Dorval",
+            "en": "Dorval",
+            "es": "Dorval"
+        },
+        "role": {
+            "fr": "Alternance développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack en alternancia"
+        },
+        "company": {
+            "fr": "Digital4Better",
+            "en": "Digital4Better",
+            "es": "Digital4Better"
+        },
+        "description": {
+            "fr": "Cette application avait pour but une refonte de leur site internet, j'ai donc participé à la migration de donnée de ce projet. Nous avons tout d'abord récupéré des fichiers venant d'une base de données utilisée par Drupal, il fallait ensuite parser les données, les traiter pour récupérer celles qui étaient importantes et les reformater pour les intégrer dans des composants Strapi crées en amont. Tout cela en js.",
+            "en": "This application aimed to redesign the company's website, so I participated in the migration of data from a Drupal database. We first retrieved files from a database used by Drupal, then we parsed the data, processed it to retrieve the important data, and reformatted it to integrate it into Strapi components created in advance. All this in js.",
+            "es": "Este proyecto tenía como objetivo rediseñar su sitio web, y participé en la migración de datos. Primero recuperamos archivos procedentes de una base de datos utilizada por Drupal; después había que analizar los datos, procesarlos para quedarnos con los importantes y reformatearlos para integrarlos en componentes de Strapi creados previamente. Todo ello en JavaScript."
+        }
+    },
+    {
+        "id": "7",
+        "order": 7,
+        "startDate": "2022-04-04",
+        "endDate": "2022-07-04",
+        "location": "Rennes",
+        "technologies": [
+            "React",
+            "Redux",
+            "TypeScript",
+            "Forestry"
+        ],
+        "link": "https://www.fruggr.io/fr/",
+        "name": {
+            "fr": "Site Fruggr.io",
+            "en": "Fruggr.io Website",
+            "es": "Sitio Fruggr.io"
+        },
+        "role": {
+            "fr": "Alternance développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack en alternancia"
+        },
+        "company": {
+            "fr": "Digital4Better",
+            "en": "Digital4Better",
+            "es": "Digital4Better"
+        },
+        "description": {
+            "fr": "J'ai réalisé la refonte du site web avec une équipe composée d'un designer et d'une chargée de communication. Notre objectif principal était double. D'une part, nous voulions booster les performances du site pour fournir une expérience utilisateur encore meilleure, plus fluide et plus rapide. D'autre part, on a cherché à intégrer les meilleures pratiques SEO pour améliorer la visibilité du site sur les moteurs de recherche. C'était une collaboration enrichissante et pleine de défis où nous avons combiné nos compétences et notre expertise pour créer un site optimisé et esthétiquement attrayant. Nous avons mis un point d'honneur à garantir que le site non seulement fonctionne efficacement, mais aussi qu'il soit bien référencé pour attirer plus de trafic et améliorer sa visibilité en ligne. Au final, cette refonte nous a permis de présenter un site de qualité supérieure, optimisé pour les moteurs de recherche et centré sur l'utilisateur...",
+            "en": "I redesigned the website with a team composed of a designer and a communication manager. Our main goal was twofold. First, we wanted to boost the site's performance to provide an even better user experience, faster and more fluid. Second, we wanted to integrate the best SEO practices to improve the site's visibility on search engines. It was an enriching collaboration where we combined our skills and expertise to create an optimized and aesthetically pleasing site. We put a lot of effort into ensuring that the site not only works efficiently but is also well-ranked for attracting more traffic and improving its visibility online. In the end, this redesign allowed us to present a superior quality site, optimized for search engines and focused on the user...",
+            "es": "Realicé el rediseño del sitio web con un equipo formado por un diseñador y una responsable de comunicación. Nuestro objetivo era doble. Por un lado, queríamos mejorar el rendimiento del sitio para ofrecer una experiencia de usuario aún mejor, más fluida y más rápida. Por otro, buscamos integrar las mejores prácticas de SEO para mejorar la visibilidad del sitio en los buscadores. Fue una colaboración enriquecedora y llena de retos en la que combinamos nuestras competencias para crear un sitio optimizado y estéticamente atractivo. Pusimos especial empeño en que el sitio no solo funcionara de forma eficaz, sino que también estuviera bien posicionado para atraer más tráfico. Al final, este rediseño nos permitió presentar un sitio de mayor calidad, optimizado para los buscadores y centrado en el usuario."
+        }
+    },
+    {
+        "id": "8",
+        "order": 8,
+        "startDate": "2021-09-06",
+        "endDate": "2022-03-14",
+        "location": "Rennes",
+        "technologies": [
+            "Vue",
+            "TS",
+            "Node",
+            "TypeOrm",
+            "GraphQl"
+        ],
+        "link": "https://www.casden.fr/",
+        "name": {
+            "fr": "CASDEN",
+            "en": "CASDEN",
+            "es": "CASDEN"
+        },
+        "role": {
+            "fr": "Alternance développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack en alternancia"
+        },
+        "company": {
+            "fr": "Digital4Better",
+            "en": "Digital4Better",
+            "es": "Digital4Better"
+        },
+        "description": {
+            "fr": "Pour ce projet, j'ai intégré une équipe de développeur, le but du projet était de réaliser un dashboard pour faciliter le suivi des actions de terrains entre la CASDEN et la banque populaire. Le projet utilisait du Vue js / Typescript pour le front et nodejs / Typeorm / graphql pour le back. J'ai pu développer des fonctionnalités de filtres, différents formulaires avec l'intégration du design que cela impliquait. J'ai également implémenté les relations avec la base de donnée que cela impliquait, fait des scripts de migrations pour adapter la base de donnée...",
+            "en": "For this project, I joined a development team, the goal of the project was to create a dashboard to facilitate the tracking of field actions between the CASDEN and the bank of France. The project used Vue js / Typescript for the front and nodejs / Typeorm / graphql for the back. I was able to develop different filters, different forms with the integration of the design that this implied. I also implemented the relationships with the database that this implied, made migration scripts to adapt the database...",
+            "es": "Para este proyecto me incorporé a un equipo de desarrolladores. El objetivo era crear un dashboard para facilitar el seguimiento de las acciones de campo entre la CASDEN y la Banque Populaire. El proyecto utilizaba Vue.js / TypeScript para el front y Node.js / TypeORM / GraphQL para el back. Desarrollé funcionalidades de filtros y distintos formularios, integrando el diseño correspondiente. También implementé las relaciones necesarias con la base de datos y escribí scripts de migración para adaptarla."
+        }
+    },
+    {
+        "id": "9",
+        "order": 9,
+        "startDate": "2021-09-06",
+        "endDate": "2022-08-31",
+        "location": "Rennes",
+        "technologies": [
+            "Unity",
+            "C#"
+        ],
+        "name": {
+            "fr": "DrumVr",
+            "en": "DrumVr",
+            "es": "DrumVr"
+        },
+        "role": {
+            "fr": "Projet école",
+            "en": "School Project",
+            "es": "Proyecto escolar"
+        },
+        "company": {
+            "fr": "Epitech",
+            "en": "Epitech",
+            "es": "Epitech"
+        },
+        "description": {
+            "fr": "J'ai participé à la réalisation d'un projet Unity en réalité virtuelle, le but du projet était de faire une sorte de guitare hero pour la batterie. J'ai donc pu modéliser un environnement de studio pour le joueur ainsi qu'une interface de menu avec différentes fonctionnalités. Le jeu à ensuite été testé sur un oculus.",
+            "en": "I participated in the realization of a Unity project in virtual reality, the goal of the project was to make a kind of guitar hero for the drums. I therefore modeled a studio environment for the player as well as a menu interface with different functionalities. The game was then tested on an oculus.",
+            "es": "Participé en la realización de un proyecto Unity en realidad virtual. El objetivo era crear una especie de Guitar Hero para la batería. Modelé un entorno de estudio para el jugador, así como una interfaz de menú con distintas funcionalidades. Después, el juego se probó en unas Oculus."
+        }
+    },
+    {
+        "id": "10",
+        "order": 10,
+        "startDate": "2020-03-16",
+        "endDate": "2020-08-31",
+        "location": "Rennes",
+        "technologies": [
+            "React",
+            "Redux",
+            "Nodejs",
+            "MySql"
+        ],
+        "link": "https://www.hoppen.care/nos-solutions/",
+        "name": {
+            "fr": "MyPatientCare",
+            "en": "MyPatientCare",
+            "es": "MyPatientCare"
+        },
+        "role": {
+            "fr": "Alternance développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack en alternancia"
+        },
+        "company": {
+            "fr": "Hoppen",
+            "en": "Hoppen",
+            "es": "Hoppen"
+        },
+        "description": {
+            "fr": "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de suivi de patients dans les hôpitaux. J'ai pu développer différentes fontionnalités front et back pour ce projet.",
+            "en": "During my first internship, I joined a development team at Hoppen. For this project, I participated in the development of a patient tracking application in hospitals. I was able to develop different front and back features for this project.",
+            "es": "Durante mi primera alternancia, me incorporé a un equipo de desarrolladores en Hoppen. En este proyecto participé en la creación de una aplicación de seguimiento de pacientes en hospitales. Desarrollé distintas funcionalidades front y back."
+        }
+    },
+    {
+        "id": "11",
+        "order": 11,
+        "startDate": "2020-02-03",
+        "endDate": "2020-08-31",
+        "location": "Rennes",
+        "technologies": [
+            "React",
+            "Redux",
+            "Nodejs",
+            "MySql"
+        ],
+        "link": "https://www.hoppen.care/nos-solutions/",
+        "name": {
+            "fr": "MyHoppenVision",
+            "en": "MyHoppenVision",
+            "es": "MyHoppenVision"
+        },
+        "role": {
+            "fr": "Alternance développeur Fullstack",
+            "en": "Fullstack Developer",
+            "es": "Desarrollador Fullstack en alternancia"
+        },
+        "company": {
+            "fr": "Hoppen",
+            "en": "Hoppen",
+            "es": "Hoppen"
+        },
+        "description": {
+            "fr": "Lors de ma première alternance, j'ai intégré une équipe de développeurs chez Hoppen. Pour ce projet, j'ai participé à la réalisation d'une application de visioconférence disponible pour les EHPAD pour rompre l'isolement et maintenir le lien entre les patients, les résidents, leurs familles et leurs proches. J'ai pu développer différentes fontionnalités front et back pour ce projet.",
+            "en": "During my first internship, I joined a development team at Hoppen. For this project, I participated in the development of a video conferencing application for EHPADs to break isolation and maintain links between patients, residents, their families and their relatives. I was able to develop different front and back features for this project.",
+            "es": "Durante mi primera alternancia, me incorporé a un equipo de desarrolladores en Hoppen. En este proyecto participé en la creación de una aplicación de videoconferencia para residencias de mayores (EHPAD), con el fin de romper el aislamiento y mantener el vínculo entre pacientes, residentes, sus familias y sus allegados. Desarrollé distintas funcionalidades front y back."
+        }
+    },
+    {
+        "id": "12",
+        "order": 12,
+        "startDate": "2018-08-01",
+        "endDate": "2018-12-21",
+        "location": "Vannes",
+        "technologies": [
+            "Java",
+            "Spring",
+            "MySql"
+        ],
+        "name": {
+            "fr": "CATS",
+            "en": "CATS",
+            "es": "CATS"
+        },
+        "role": {
+            "fr": "Stage développeur Java",
+            "en": "Internship Fullstack Developer",
+            "es": "Prácticas de desarrollador Java"
+        },
+        "company": {
+            "fr": "Crédit Agricole Technologie & Services",
+            "en": "Crédit Agricole Technologie & Services",
+            "es": "Crédit Agricole Technologie & Services"
+        },
+        "description": {
+            "fr": "Lors de mon stage au sein du Crédit Agricole, j'ai eu l'opportunité de travailler sur un projet visant à développer une application pour le système d'information (SI) de la banque, afin d'assurer un suivi efficace des anomalies sur les cartes de crédit qui utilisent l'application Xpay. L'objectif principal de ce projet est d'améliorer la qualité du service client et de minimiser les risques liés aux transactions frauduleuses.",
+            "en": "During my internship at the Crédit Agricole, I had the opportunity to work on a project aimed at developing an application for the bank's information system (SI) to improve the tracking of anomalies on credit cards using the Xpay application. The main objective of this project is to improve the quality of customer service and minimize the risks associated with fraudulent transactions.",
+            "es": "Durante mis prácticas en el Crédit Agricole, tuve la oportunidad de trabajar en un proyecto cuyo objetivo era desarrollar una aplicación para el sistema de información del banco, con el fin de garantizar un seguimiento eficaz de las anomalías en las tarjetas de crédito que utilizan la aplicación Xpay. El objetivo principal era mejorar la calidad del servicio al cliente y minimizar los riesgos asociados a las transacciones fraudulentas."
+        }
+    }
+]

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { defaultLocale, localizedPath, useTranslations } from '../i18n';
+
+// GitHub Pages serves a single 404.html, so this page uses the default locale.
+const lang = defaultLocale;
+const t = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} alternates={false} title={`404 — ${t.notFound.title}`}>
+    <section class="container not-found">
+        <p class="code">404</p>
+        <h1>{t.notFound.title}</h1>
+        <p class="text">{t.notFound.text}</p>
+        <a href={localizedPath(lang)} class="home">{t.notFound.home}</a>
+    </section>
+</BaseLayout>
+
+<style>
+    .not-found {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-block: 80px;
+    }
+
+    .code {
+        margin: 0;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        color: var(--accent);
+    }
+
+    h1 {
+        margin: 20px 0 0;
+        font-size: clamp(40px, 7vw, 104px);
+        line-height: 0.92;
+        letter-spacing: -0.055em;
+        font-weight: 600;
+    }
+
+    .text {
+        margin: 24px 0 0;
+        color: var(--fg-soft);
+    }
+
+    .home {
+        margin-top: 36px;
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 13px 22px;
+        border: 1px solid var(--line-strong);
+    }
+
+    .home:hover {
+        border-color: var(--accent);
+    }
+</style>

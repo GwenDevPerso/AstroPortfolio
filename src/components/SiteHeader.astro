@@ -1,0 +1,146 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import { localizedPath, useTranslations, type Locale } from '../i18n';
+import { profile } from '../data/profile';
+import { getProjects } from '../lib/projects';
+
+interface Props {
+    lang: Locale;
+    path: string;
+}
+
+const { lang, path } = Astro.props;
+const t = useTranslations(lang);
+const home = localizedPath(lang);
+const bootLines = t.header.boot((await getProjects()).length);
+
+const links = [
+    { id: 'about', label: t.nav.about },
+    { id: 'skills', label: t.nav.skills },
+    { id: 'work', label: t.nav.work },
+    { id: 'timeline', label: t.nav.timeline },
+    { id: 'contact', label: t.nav.contact },
+];
+---
+
+<header class="site-header">
+    <div class="container bar">
+        <a href={home} class="brand"><span class="accent" aria-hidden="true">◆</span><span>{profile.domain}</span></a>
+        <span class="boot" aria-hidden="true">
+            <span data-spinner>⠋</span>
+            <span data-boot-lines={JSON.stringify(bootLines)}>{bootLines[0]}</span>
+        </span>
+        <nav class="nav" aria-label={t.nav.label}>
+            <ul>
+                {links.map((link) => (
+                    <li>
+                        <a href={`${home}#${link.id}`}>{link.label}</a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+        <LanguagePicker lang={lang} path={path} />
+    </div>
+    <div class="progress" data-scroll-progress aria-hidden="true"></div>
+</header>
+
+<style>
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: rgba(14, 14, 12, 0.9);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+    }
+
+    .bar {
+        min-height: var(--header-height);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+
+    .brand {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .accent {
+        color: var(--accent);
+    }
+
+    .boot {
+        display: flex;
+        gap: 10px;
+        margin-inline: auto;
+        color: var(--muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav ul {
+        display: flex;
+        gap: 18px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav a {
+        color: var(--muted);
+        white-space: nowrap;
+    }
+
+    .nav a:hover {
+        color: var(--accent);
+    }
+
+    .progress {
+        height: 1px;
+        width: 100%;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    @media (max-width: 1000px) {
+        .boot {
+            display: none;
+        }
+
+        .nav {
+            margin-left: auto;
+        }
+    }
+
+    @media (max-width: 720px) {
+        .bar {
+            flex-wrap: wrap;
+            row-gap: 0;
+            padding-top: 10px;
+        }
+
+        .brand {
+            margin-right: auto;
+        }
+
+        .nav {
+            order: 3;
+            flex-basis: 100%;
+            margin-left: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav ul {
+            padding-block: 12px;
+        }
+    }
+</style>
