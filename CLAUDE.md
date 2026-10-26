@@ -34,7 +34,7 @@ Deployment: pushing to `main` triggers `.github/workflows/deploy.yml`, which bui
 - Use `getProjects()` / `localizeProject()` from `src/lib/projects.ts` rather than `getCollection` directly. Counts shown on the site (projects, year range, skills) are derived from data, not hardcoded.
 - Skills: `src/data/skills.ts`. Timeline periods: `src/data/timeline.ts` (localized inline). Profile constants (external links, years of experience): `src/data/profile.ts`.
 - The portrait is `src/assets/me.jpg`, rendered through `astro:assets` `<Image>` as a small avatar next to the name in the hero.
-- The hero visual is a canvas port (`src/scripts/neural-network.ts`) of the React mockup in `src/assets/Réseau neuronal particules animé/` (source only, not bundled, excluded from tsconfig). It pauses off-screen and shows a still frame under `prefers-reduced-motion`.
+- The hero visual is the `<review-loop>` web component in `public/review-loop.js` (plain JS, loaded inline from `Hero.astro`): a bald, mustached head drawn in green code glyphs on a canvas, ponytail.dev style. It pauses off-screen and shows a still frame under `prefers-reduced-motion`.
 
 ### Design & styling
 
